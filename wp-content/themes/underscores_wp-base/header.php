@@ -27,7 +27,8 @@
 
 	<header id="masthead" class="site-header">
 		<div id="prim-menu">
-			<h1>Tête en Fête</h1>
+			<!-- <h1>Tête en Fête</h1> -->
+			 <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Logo Tête en Fête">
 			<?php
 			if (has_nav_menu('menu-1')) {
 				wp_nav_menu(array(
