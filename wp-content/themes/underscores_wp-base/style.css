@@ -67,6 +67,30 @@ body {
 	font-style: normal;
 }
 
+#masthead {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	justify-items: center;
+	border: 1px solid black
+}
+
+#prim-menu {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+#primary-menu {
+	display: grid;
+	grid-template-columns:  repeat(auto-fit, minmax(100px,1fr));
+}
+
+#primary-menu li {
+	list-style: none;
+	margin-right: 5px;
+}
+
+
+
 .site-info {
 	margin: 0;
 	padding: 0;
@@ -98,4 +122,18 @@ body {
 
 #footer-menu-2 {
 	border-right: 2px solid black;
+}
+
+#menu-button{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	align-items: center;
+	gap: 20px;
+}
+#rdv {
+	padding: 10px;
+	border-radius: 50px;
+	border: none;
+	background-color: #369094;
+	color: white;
 }
