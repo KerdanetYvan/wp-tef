@@ -44,8 +44,7 @@
 		
 
 		<div id="menu-button">
-			<a href="/contact">Contact</a>
-			<button id="rdv" href="/">Prendre rendez-vous</button>
+			<button id="rdv" href="/contact">Me contacter ?</button>
 		</div>
 
 
