@@ -68,14 +68,11 @@ body {
 }
 
 #masthead {
+	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	justify-items: center;
 	font-size: large;
-}
-
-.class-header-menu{
-	display: grid;
 }
 
 #prim-menu {
@@ -125,6 +122,9 @@ body {
 	border: none;
 	background-color: #369094;
 	color: white;
+	display: grid;
+	grid-template-columns: 5fr 1fr;
+	align-items: center;
 }
 
 .site-info {
@@ -163,5 +163,4 @@ body {
 #fleche {
 	height: 20px;
 	width: 20px;
-	background-color: white;
 }
