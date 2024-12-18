@@ -87,11 +87,35 @@ $table_prefix = 'wp_';
  */
 define( 'WP_DEBUG', false );
 
+
+
+
+
 /* Add any custom values between this line and the "stop editing" line. */
 
+// Enregistrement des erreurs dans un fichier de log
+define( 'WP_DEBUG_LOG', true );
 
+// Désactivation de l'éditeur de fichier de thème et de plugin
+define( 'DISALLOW_FILE_EDIT', true );
+
+// Désactivation des mises à jour automatiques
+define( 'AUTOMATIC_UPDATER_DISABLED', true );
+
+// Désactivation des mises à jour de plugin
+define( 'DISALLOW_FILE_MODS', true );
+
+// Désactivation des mises à jours mineures
+define( 'WP_AUTO_UPDATE_CORE', 'minor' );
+
+// Utilisation du cache natif de wp
+define( 'WP_CACHE', true );
 
 /* That's all, stop editing! Happy publishing. */
+
+
+
+
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {

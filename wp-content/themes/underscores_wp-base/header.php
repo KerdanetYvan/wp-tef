@@ -41,12 +41,7 @@
 			?>
 		</div>
 
-		
-
 		<div id="menu-button">
-			<button id="rdv" href="/contact">Me contacter ?</button>
+			<button id="rdv" href="/contact">Me contacter<img src="<?php echo get_template_directory_uri(); ?>/img/angle-petit-droit.svg" alt="arrow-right" id="fleche"/></button>
 		</div>
-
-
-		
 	</header><!-- #masthead -->
