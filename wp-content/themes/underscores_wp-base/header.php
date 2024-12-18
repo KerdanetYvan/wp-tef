@@ -28,17 +28,18 @@
 	<header id="masthead" class="site-header">
 		<div id="prim-menu">
 			<!-- <h1>Tête en Fête</h1> -->
-			 <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Logo Tête en Fête">
-			<?php
-			if (has_nav_menu('menu-1')) {
-				wp_nav_menu(array(
-					'theme_location' => 'menu-1',
-					'menu_id' => 'primary-menu',
-					'container' => 'nav',
-					'container_class' => 'class-header-menu',
-				));
-			}
-			?>
+			<nav>
+				<?php
+				if (has_nav_menu('menu-1')) {
+					?><li><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Logo Tête en Fête"></li>
+					<li><a href="/wordpress-warriors">Accueil</a></li><?php
+					wp_nav_menu(array(
+						'theme_location' => 'menu-1',
+						'menu_id' => 'primary-menu',
+					));
+				}
+				?>
+			</nav>
 		</div>
 
 		<div id="menu-button">
