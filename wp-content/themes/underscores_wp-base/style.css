@@ -70,8 +70,7 @@ body {
 #masthead {
 	width: 100%;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	justify-items: center;
+	grid-template-columns: 5fr 1fr;
 	font-size: large;
 }
 
@@ -84,7 +83,7 @@ body {
 }
 
 #prim-menu img {
-	margin-inline: 10px;
+	padding-inline: 10px;
 }
 
 #prim-menu h1 {
@@ -109,11 +108,11 @@ body {
 #menu-button{
 	width: 100%;
 	display: grid;
-	grid-template-columns: 1fr 200px;
+	grid-template-columns: 200px;
 	align-items: center;
-	justify-items: end;
+	justify-items: center;
 	gap: 20px;
-	margin-right: 100px;
+	padding-inline: 20px;
 }
 
 #rdv {
