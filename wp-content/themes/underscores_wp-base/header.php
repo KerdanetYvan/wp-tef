@@ -26,34 +26,22 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'my-stater-theme' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
+		<div id="prim-menu">
+			<!-- <h1>Tête en Fête</h1> -->
+			 <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Logo Tête en Fête">
 			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$my_stater_theme_description = get_bloginfo( 'description', 'display' );
-			if ( $my_stater_theme_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $my_stater_theme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'my-stater-theme' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
+			if (has_nav_menu('menu-1')) {
+				wp_nav_menu(array(
 					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
+					'menu_id' => 'primary-menu',
+					'container' => 'nav',
+					'container_class' => 'class-header-menu',
+				));
+			}
 			?>
-		</nav><!-- #site-navigation -->
+		</div>
+
+		<div id="menu-button">
+			<button id="rdv" href="/contact">Me contacter<img src="<?php echo get_template_directory_uri(); ?>/img/angle-petit-droit.svg" alt="arrow-right" id="fleche"/></button>
+		</div>
 	</header><!-- #masthead -->
