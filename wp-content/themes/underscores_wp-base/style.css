@@ -63,47 +63,154 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 body {
 	margin: 0;
 	font-family: "brandon-grotesque";
-	font-weight: 300;
 	font-style: normal;
 }
-/* *{
-	border: solid 1px red;
-} */
-.mainMenu{
-	/* max-width: 1027px; */
-	font-weight: 500;
-	font-size: clamp(50px, 2em, 2rem);
-	text-transform: uppercase;
+
+
+/* Styles par défaut pour les mobiles */
+.containerLandingPage {
+    padding: 24px 20px; 
+    gap: 20px; 
 }
 
-.mainMenu .surroundedMain, .mainMenu .unedrlineMain{
-	position: relative;
+.mainMenu {
+    font-weight: 900;
+    font-size: 24px;
+    text-transform: uppercase;
+    line-height: 33px;
+
 }
-.mainMenu .unedrlineMain::after{
-	position: absolute;
+
+.mainMenu .surroundedMain, .mainMenu .unedrlineMain {
+    position: relative;
+}
+
+.mainMenu .unedrlineMain::after {
+    position: absolute;
+    display: grid;
+    content: "";
+    background: url('./img/underline.svg') no-repeat;
+    width: 100%;
+    height: 24px;
+    left: 0px;
+    top: 27px;
+}
+
+.landingPresentation {
+    font-size: 16px; /* Text plus petit pour mobile */
+}
+
+.surroundedMain::after {
+    position: absolute;
+    display: grid;
+    content: "";
+    background: url('./img/Ellipse.svg') no-repeat center;
+    width: 120%;
+    height: 120%;
+    left: -11px;
+    top: 0px;
+	transform: rotate(180deg);
+}
+.gridPictureLanding{
+	display: none;
+}
+/* Styles pour les écrans moyens */
+@media (min-width: 768px) {
+    .containerLandingPage {
+        padding: calc(32px + 1vmin) 30px;
+        gap: 30px;
+    }
+
+    .mainMenu {
+        font-size: clamp(48px, 6vmin, 64px);
+        line-height: 75px;
+    }
+
+    .mainMenu .unedrlineMain::after {
+        height: 32px;
+        top: 62px;
+    }
+
+    .landingPresentation {
+        font-size: 20px;
+    }
+
+    .surroundedMain::after {
+        width: 120%;
+        height: 120%;
+        left: -12px;
+        top: -10px;
+		transform: rotate(360deg);
+
+    }
+}
+.ctaLanding{
+	background: #349094;
+	color: #ffff;
+	border: none;
+	border-radius: 53px ;
+	padding: 6px 12px;
 	display: grid;
+	grid-template-columns: 5fr 1fr;
+	gap: 10px;
+	height: 30px;
+	align-items: center;
+	cursor: pointer;
+}
+.ctaLanding::after{
 	content: "";
-	background: url('./img/underline.svg') no-repeat ;
+	background: url('./img/arrow-right.svg') no-repeat;
 	width: 100%;
-	height: 42px;
-	left: 0px;
-}
-.landingPresentation{
-	font-size: 24px;
-}
-.surroundedMain::after  {
-	position: absolute;
-	display: grid;
-	content: "";
-	background: url('./img/Ellipse.svg') no-repeat ;
-	width: 140%;
 	height: 100%;
-    left: -16px;
-    top: -10px;
+	align-items: center;
+	display: grid;
 }
-.surround-svg {
+
+@media (min-width:878px){
+	.mainMenu{
+		font-size: 3rem;
+		max-width: 844px;
+		line-height: 77px;
+	}
+	.gridPictureLanding{
+		display: grid;
+		z-index: -1;
+		position: absolute;
+		right: 0px;
+		top: 60px;
+	}
+}
+
+/* Styles pour les écrans larges */
+@media (min-width: 1200px) {
+    .containerLandingPage {
+        padding: calc(48px + 1vmin) 40px;
+        gap: 43px;
+    }
+    .mainMenu .unedrlineMain::after {
+        height: 42px;
+        top: 57px;
+    }
+
+    .landingPresentation {
+        font-size: 24px;
+    }
+
+    .surroundedMain::after {
+        width: 115%;
+        height: 115%;
+        left: -9px;
+        top: -5px;
+    }
+}
+
+/* .surround-svg {
     width: clamp(120%, 140%, 160%);
-}
+} */
+
+
+
+
 
 .site-info {
 	margin: 0;

@@ -187,3 +187,29 @@ function register_footer_menus() {
     ));
 }
 add_action('init', 'register_footer_menus');
+
+
+/**
+ * fontion pour gérer la police depuis le backoffice
+ *
+ * @param [type] $wp_customize
+ * @return void
+ */ 
+// function theme_customize_register($wp_customize) {
+//     $wp_customize->add_section('typography_section', array(
+//         'title' => __('Typography', 'mon-theme'),
+//         'priority' => 30,
+//     ));
+
+//     $wp_customize->add_setting('body_font', array(
+//         'default' => 'MaPolice',
+//         'sanitize_callback' => 'sanitize_text_field',
+//     ));
+
+//     $wp_customize->add_control('body_font', array(
+//         'label' => __('Police principale', 'mon-theme'),
+//         'section' => 'typography_section',
+//         'type' => 'text',
+//     ));
+// }
+// add_action('customize_register', 'theme_customize_register');
