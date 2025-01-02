@@ -169,6 +169,8 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
+// activations des shortcode 
+require get_template_directory() . '/inc/shortcodes.php';
 /**
  * Load Jetpack compatibility file.
  */
