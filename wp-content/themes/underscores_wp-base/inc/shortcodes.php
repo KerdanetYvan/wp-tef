@@ -23,6 +23,7 @@ function theme_custom_section_services_shortcode($atts) {
     <sectio class="custom-section">
         <h3>Phases de l'accompagnement</h3>
         <div class="container-section">
+            <div class="space-time-line"></div>
             <div class="phase-item">
                 <h4><?= esc_html($atts['phase1_title']); ?></h4>
                 <div class="descriptio-phase-item">
@@ -49,26 +50,36 @@ function theme_custom_section_services_shortcode($atts) {
     <style>
         .custom-section {
             display: grid;
-            /* gap: 24px; */
             border-bottom: 2px solid #8DC1C3;
         }   
         .custom-section h3{
             padding-left:40px;
-            font-weight: 500;
+            font-weight: 450;
             font-size: 36px;
+            line-height: 47.5px;
             margin-bottom: 24px;
+            display: grid;
+            grid-template-columns: 5px 1fr;
+            gap: 14px;
         }
-        .custom-section h3::after{
-            content: "";
+        .custom-section h3::before{
             display: grid;
 
+            content: "";
+            width: 5px;
+            height: 100%;
+            background: url('<?php echo get_template_directory_uri(); ?>/img/line-title.webp') no-repeat;
+
+        }
+        .space-time-line{
+            display: none;
         }
 
         .container-section{
             display: grid;
-            grid-template-columns: 404px 404px 404px;
+            grid-template-columns: 1fr 1fr 1fr;
             justify-content: center;
-            align-items: center;
+            margin: 0 66px;
         }
         .phase-item{
             display: grid;
@@ -81,6 +92,8 @@ function theme_custom_section_services_shortcode($atts) {
             font-family: "Inter", serif;
             font-weight: 400;
             font-style: normal;
+            font-size: 24px;
+            line-height: 29.05px;
         }
         .descriptio-phase-item{
             height:120px;
@@ -99,16 +112,18 @@ function theme_custom_section_services_shortcode($atts) {
             left: -8px;
         }
         .phase-item p {
-            font-size: small;
             margin: 5px 0;
         }
-        @media screen and (max-width:1200px){
+        @media screen and (max-width:1000px){
             .container-section{
                 grid-template-columns: initial;
                 gap: 16px;
                 margin: auto;
-                border-left: #8DC1C3 solid 2px;
-
+                border-left: #8DC1C3 solid 4px;
+            }
+            .space-time-line{
+                display: grid;
+                height: 20px;
             }
             .custom-section{
                 border-bottom:none;
@@ -121,12 +136,38 @@ function theme_custom_section_services_shortcode($atts) {
                 
             }
             .phase-item h4{
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 19.36px;
                 padding-top: 16px;
             }
             .phase-item::before{
                 top: -8px;
-                left: -8px;
+                left: -10px;
             }
+        }
+        @media screen and (max-width:410px){
+            .phase-item{
+                width: 100%;
+            }
+            .container-section{
+                grid-template-columns: 215px;
+            }
+            .phase-item p{
+                font-size: 16px;
+                line-height: 16px;
+            }
+
+            
+        }
+        @media screen and (max-width:498px) {
+            .custom-section h3{
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 27.4px;
+            }
+     
+            
         }
 
     </style>
@@ -167,42 +208,59 @@ function theme_custom_section_between_shortcode($atts) {
             border-radius: 20px;
             height: 232px;
             padding: 24px;
-            width: 588px ;
             margin: auto;
         }
         .vignette h3{
+            font-family: "Inter", serif;
             margin-bottom: 12px;
-            font-size: x-large;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 27.4px;
         }
 
 
 
         .picture1{
-            background:linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.004) 60%, rgba(255, 255, 255, 0) 99.89%),linear-gradient(90deg, #B9DADA 0%, rgba(151, 199, 200, 0.741386) 53.02%, rgba(52, 144, 148, 0) 100%) ,  url('<?php echo get_template_directory_uri(); ?>/img/home-vignette1.webp') no-repeat center ;
+            background:linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.004) 60%, rgba(255, 255, 255, 0) 99.89%),linear-gradient(90deg, #B9DADA 0%, rgba(151, 199, 200, 0.741386) 53.02%, rgba(52, 144, 148, 0) 100%) ,  url('<?php echo get_template_directory_uri(); ?>/img/home-vignette1.webp') no-repeat right ;
             box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1) inset;
         }
         .picture2{
-            background:  linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.004) 60%, rgba(255, 255, 255, 0) 99.89%), linear-gradient(90deg, #B9DADA 0%, rgba(151, 199, 200, 0.741386) 53.02%, rgba(52, 144, 148, 0) 100%), url('<?php echo get_template_directory_uri(); ?>/img/home-vignette2.webp') no-repeat center;
+            background:  linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.004) 60%, rgba(255, 255, 255, 0) 99.89%), linear-gradient(90deg, #B9DADA 0%, rgba(151, 199, 200, 0.741386) 53.02%, rgba(52, 144, 148, 0) 100%), url('<?php echo get_template_directory_uri(); ?>/img/home-vignette2.webp') no-repeat right;
             box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1) inset;
         }
-        @media screen and (max-width:1300px){
+        @media screen and (max-width:1000px){
             .containerPresentation{
                 grid-template-columns:1fr;
+            }
+            .vignette p {
+                font-size: 16px;
+                line-height: 16px;
             }
         }
         @media screen and (max-width:662px){
             .vignette{
-                width: 90%;
                 height: 422px;
                 box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1) inset;
             }
+
+
             .picture1{
-                background:linear-gradient(90deg, #B9DADA 66.79%, rgba(52, 144, 148, 0) 111.26%) ,  url('<?php echo get_template_directory_uri(); ?>/img/home-vignette1.webp') no-repeat bottom ;
+                background:linear-gradient(180deg, #B9DADA 47.07%, rgba(52, 144, 148, 0) 100%) ,  url('<?php echo get_template_directory_uri(); ?>/img/home-vignette1.webp') no-repeat bottom ;
             }
             .picture2{
-                background: linear-gradient(90deg, #B9DADA 66.79%, rgba(52, 144, 148, 0) 111.26%), url('<?php echo get_template_directory_uri(); ?>/img/home-vignette2.webp') no-repeat bottom;
+                background: linear-gradient(180deg, #B9DADA 47.07%,#34909400 100%), url('<?php echo get_template_directory_uri(); ?>/img/home-vignette2.webp') no-repeat bottom;
             }
         }
+        @media screen and (max-width:498px) {
+            .vignette h3{
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 27.4px;
+            }
+     
+            
+        }
+        
     </style>
 
     <?php
