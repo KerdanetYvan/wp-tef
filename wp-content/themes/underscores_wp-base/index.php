@@ -31,7 +31,26 @@ get_header();
                ?></div>
          </header>
          <?php 
-         // the_content(); 
+
+         $datas = highlighting();
+         if(!empty($datas)){
+            foreach($datas as $data){
+               $article = get_post($data);
+               $title = $article->post_title;
+               $contenu = $article->post_content;
+               $date = $article->post_date;
+               echo $title;
+               echo $contenu;
+               echo $date;
+
+            }
+         }else {
+            echo '<p>Aucun article mis en avant !</p>';
+         }
+         // get_post($data[72]);
+         // $title = $billet->post_title;
+         // $date = $billet->post_date;
+         // $contenu = $billet->post_content;
          ?>
 
       </article>
