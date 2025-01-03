@@ -169,8 +169,7 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-// activations des shortcode 
-require get_template_directory() . '/inc/shortcodes.php';
+
 /**
  * Load Jetpack compatibility file.
  */
@@ -190,6 +189,8 @@ function register_footer_menus() {
 }
 add_action('init', 'register_footer_menus');
 
+// activations des shortcode 
+require get_template_directory() . '/inc/shortcodes.php';
 
 /**
  * fontion pour gérer la police depuis le backoffice
