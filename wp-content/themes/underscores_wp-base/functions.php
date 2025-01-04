@@ -177,6 +177,23 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+
+// modif james yann yavan 
+
+
+// fonctions qui active le mode logo dans wordPress
+function theme_prefix_setup() {
+	add_theme_support( 'custom-logo', array(
+		'height'      => 100,
+		'width'       => 400,
+		'flex-width' => true,
+	    'header-text' => array( 'site-title', 'site-description' ),
+	) );
+
+}
+add_action( 'after_setup_theme', 'theme_prefix_setup' );
+
 /**
  * Functions that follow is an additional code that we added at the creation of this website
  * Les fonctions qui suivent on été ajoutées à la création de ce site
@@ -185,34 +202,11 @@ function register_footer_menus() {
     register_nav_menus(array(
         'menu-general' => __('Footer Menu 2', 'my-stater-theme'),
         'menu-3' => __('Footer Menu 3', 'my-stater-theme'),
+		'menu-1' => __('Primary Menu nav 1', 'my-stater-theme'),
+		'menu-2' => __('Primary Menu nav 2', 'my-stater-theme'),
     ));
 }
 add_action('init', 'register_footer_menus');
 
-// activations des shortcode 
-require get_template_directory() . '/inc/shortcodes.php';
 
-/**
- * fontion pour gérer la police depuis le backoffice
- *
- * @param [type] $wp_customize
- * @return void
- */ 
-// function theme_customize_register($wp_customize) {
-//     $wp_customize->add_section('typography_section', array(
-//         'title' => __('Typography', 'mon-theme'),
-//         'priority' => 30,
-//     ));
-
-//     $wp_customize->add_setting('body_font', array(
-//         'default' => 'MaPolice',
-//         'sanitize_callback' => 'sanitize_text_field',
-//     ));
-
-//     $wp_customize->add_control('body_font', array(
-//         'label' => __('Police principale', 'mon-theme'),
-//         'section' => 'typography_section',
-//         'type' => 'text',
-//     ));
-// }
-// add_action('customize_register', 'theme_customize_register');
+// modif james yann yavan 
