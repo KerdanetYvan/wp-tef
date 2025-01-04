@@ -221,11 +221,16 @@ function theme_custom_section_between_shortcode($atts) {
 
 
         .picture1{
-            background:linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.004) 60%, rgba(255, 255, 255, 0) 99.89%),linear-gradient(90deg, #B9DADA 0%, rgba(151, 199, 200, 0.741386) 53.02%, rgba(52, 144, 148, 0) 100%) ,  url('<?php echo get_template_directory_uri(); ?>/img/home-vignette1.webp') no-repeat right ;
+            background: rgb(185,218,218);
+            /* background: linear-gradient(90deg, rgba(185,218,218,1) 0%, rgba(151,199,200,0.74) 53%, rgba(52,144,148,0) 100%); */
+
+
+            background:linear-gradient(90deg, #B9DADA 0%, rgba(151, 199, 200, 0.74) 53.02%, rgba(52, 144, 148, 0.00) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 60%, rgba(255, 255, 255, 0.00) 99.89%),  url('<?php echo get_template_directory_uri(); ?>/img/vignette1.webp') no-repeat right ;
+            /* background:linear-gradient(90deg, rgba(185,218,218,1) 0%, rgba(151,199,200,0.74) 53%, rgba(52,144,148,0) 100%), url('<?php echo get_template_directory_uri(); ?>/img/home-vignette1.webp') no-repeat right ; */
             box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1) inset;
         }
         .picture2{
-            background:  linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.004) 60%, rgba(255, 255, 255, 0) 99.89%), linear-gradient(90deg, #B9DADA 0%, rgba(151, 199, 200, 0.741386) 53.02%, rgba(52, 144, 148, 0) 100%), url('<?php echo get_template_directory_uri(); ?>/img/home-vignette2.webp') no-repeat right;
+            background:  linear-gradient(90deg, #B9DADA 0%, rgba(151, 199, 200, 0.74) 53.02%, rgba(52, 144, 148, 0.00) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 60%, rgba(255, 255, 255, 0.00) 99.89%), url('<?php echo get_template_directory_uri(); ?>/img/home-vignette2.webp') no-repeat right;
             box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1) inset;
         }
         @media screen and (max-width:1000px){
