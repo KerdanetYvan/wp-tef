@@ -39,10 +39,10 @@ get_header();
                $title = $article->post_title;
                $contenu = $article->post_content;
                $date = $article->post_date;
+               $date = $article->post_date;
                echo $title;
                echo $contenu;
                echo $date;
-
             }
          }else {
             echo '<p>Aucun article mis en avant !</p>';

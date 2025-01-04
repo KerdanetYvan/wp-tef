@@ -54,12 +54,15 @@ function manager_highlighting(){
     // echo'<pre>';
     // print_r($options);
     // echo'</pre>';
-    $args = [
-        'post_type'      => 'post',
-        'posts_per_page' => -1,
-    ];
+    
+    // $args = [
+    //     'post_type'      => 'post',
+    //     'posts_per_page' => -1,
+    // ];
 
-    $posts = get_posts($args);
+    // $posts = get_posts($args);
+
+    $posts = get_posts();
 
     if (!empty($posts)) {
         foreach ($posts as $post) {
@@ -75,7 +78,7 @@ function manager_highlighting(){
 }
 
 // cette fonction va appeler les autres fonctions pour afficher le formulaire complet sur notre page de réglage 
-function highlighting_options_page(  ) { 
+function highlighting_options_page() { 
 
     ?>
     <form action='options.php' method='post'>
