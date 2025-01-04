@@ -176,6 +176,23 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+
+// modif james yann yavan 
+
+
+// fonctions qui active le mode logo dans wordPress
+function theme_prefix_setup() {
+	add_theme_support( 'custom-logo', array(
+		'height'      => 100,
+		'width'       => 400,
+		'flex-width' => true,
+	    'header-text' => array( 'site-title', 'site-description' ),
+	) );
+
+}
+add_action( 'after_setup_theme', 'theme_prefix_setup' );
+
 /**
  * Functions that follow is an additional code that we added at the creation of this website
  * Les fonctions qui suivent on été ajoutées à la création de ce site
@@ -184,6 +201,11 @@ function register_footer_menus() {
     register_nav_menus(array(
         'menu-general' => __('Footer Menu 2', 'my-stater-theme'),
         'menu-3' => __('Footer Menu 3', 'my-stater-theme'),
+		'menu-1' => __('Primary Menu nav 1', 'my-stater-theme'),
+		'menu-2' => __('Primary Menu nav 2', 'my-stater-theme'),
     ));
 }
 add_action('init', 'register_footer_menus');
+
+
+// modif james yann yavan 

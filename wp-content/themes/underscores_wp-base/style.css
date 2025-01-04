@@ -60,6 +60,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document   ========================================================================== */
+*,*::after,*::before{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body {
 	margin: 0;
 	font-family: "brandon-grotesque", sans-serif;
@@ -67,28 +73,22 @@ body {
 	font-style: normal;
 }
 
+/*--------------------------------------------- debut du header ------------------------------------------------------------- */
 #masthead {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	justify-items: center;
 	font-size: large;
+	padding: 12px 40px;
 }
 
 .class-header-menu{
 	display: grid;
 }
 
-#prim-menu {
-	display: grid;
-	grid-template-columns: 100px 1fr;
-	width: 100%;
-	align-items: center;
-	justify-content: center;
-}
 
-#prim-menu img {
-	margin-inline: 10px;
-}
+
+
 
 #prim-menu h1 {
 	text-align: center;
@@ -99,7 +99,7 @@ body {
 	grid-template-columns:  repeat(auto-fit, minmax(100px,1fr));
 }
 
-#primary-menu li {
+#primary-menu li, #primary-menu-2 li {
 	list-style: none;
 	margin-right: 5px;
 }
@@ -126,6 +126,47 @@ body {
 	background-color: #369094;
 	color: white;
 }
+/* partie james yann  */
+
+#prim-menu {
+	display: grid;
+	grid-template-columns: auto 1fr ;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	gap: 24px;
+}
+
+#primary-menu{
+	display: grid;
+	grid-template-columns: repeat(5, auto) ;
+	gap: 24px;
+}
+#primary-menu li a{
+	white-space: nowrap;
+
+}
+#primary-menu-2{
+	display: grid;
+	grid-template-columns: 1fr 1fr ;
+}
+.menuHamburger{
+	display: none;
+}
+
+.container-menu-1{
+	display: grid;
+	grid-template-columns: auto 1fr;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+
+/*--------------------------------------------------------- fin header ------------------------------------------------------------- */
+
+
 
 .site-info {
 	margin: 0;
