@@ -334,9 +334,39 @@ function theme_custom_service($atts) {
 function theme_custom_stage($atts) {
     $atts = shortcode_atts([
         'image' => 'undefined',
+        'title' => 'Titre du stage',
+        'content' => 'Description du stage',
     ], $atts);
-
     ob_start(); ?>
+
+    <div class="stage">
+        <img class="img" src="<?php echo get_template_directory_uri() . '/img/' . esc_html($atts['image']) . '.png'; ?>" alt="Image du stage">
+        <div class="content">
+            <h4 class="titre"><?= esc_html($atts['title']); ?></h4>
+            <p class="content"><?= esc_html($atts['content']); ?></p>
+        </div>
+    </div>
+    <style>
+        .stage {
+            margin: 0;
+            padding: 0;
+            border-radius: 20px;
+            background-color: #E6F2F2;
+            overflow: hidden;
+        }
+
+        .img {
+            margin: 0;
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .content {
+            margin: 0;
+            padding: 10px;
+        }
+    </style>
 
     <?php return ob_get_clean();
 }
@@ -344,3 +374,4 @@ function theme_custom_stage($atts) {
 add_shortcode('custom_section_services', 'theme_custom_section_services_shortcode');
 add_shortcode('custom_section_between', 'theme_custom_section_between_shortcode');
 add_shortcode('custom_service', 'theme_custom_service');
+add_shortcode('custom_stage', 'theme_custom_stage');
