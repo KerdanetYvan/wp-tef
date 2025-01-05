@@ -286,12 +286,61 @@ function theme_custom_section_between_shortcode($atts) {
 
 }
 
-// Ajout des shortcodes pour services
-function theme_custom_services() {
-    
+// Ajout des shortcodes pour un service
+function theme_custom_service($atts) {
+    $atts = shortcode_atts([
+        'title' => 'Title service',
+        'content' => '<li>Content service</li>',
+    ], $atts);
+
+    ob_start(); ?>
+    <div class='service'>
+        <h4 class="blanc titre"><?= esc_html($atts["title"]); ?></h4>
+        <ul class="blanc description list"><?= wp_kses_post($atts["content"], ['li' => []]); ?></ul>
+    </div>
+
+    <style>
+        .service {
+            padding: 10px;
+            background-color: #5BA4A7;
+            border-radius: 20px;
+        }
+
+        .blanc {
+            color: white;
+        }
+        
+        .titre {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .list {
+            list-style-type: disc;
+            list-style-position: inside;
+            padding-left: 5px;
+        }
+
+        .description {
+            font-size: 16px;
+            font-weight: 390;
+            text-align: justify;
+        }
+    </style>
+<?php return ob_get_clean();
 }
 
+function custom_stage($atts) {
+    $atts = shortcode_atts([
 
+    ], $atts);
+
+    ob_start(); ?>
+
+    <?php return ob_get_clean();
+}
 
 add_shortcode('custom_section_services', 'theme_custom_section_services_shortcode');
 add_shortcode('custom_section_between', 'theme_custom_section_between_shortcode');
+add_shortcode('custom_service', 'theme_custom_service');
