@@ -331,9 +331,9 @@ function theme_custom_service($atts) {
 <?php return ob_get_clean();
 }
 
-function custom_stage($atts) {
+function theme_custom_stage($atts) {
     $atts = shortcode_atts([
-
+        'image' => 'default',
     ], $atts);
 
     ob_start(); ?>
