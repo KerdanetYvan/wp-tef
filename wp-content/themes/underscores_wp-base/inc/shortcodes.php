@@ -64,7 +64,6 @@ function theme_custom_section_services_shortcode($atts) {
         }
         .custom-section h3::before{
             display: grid;
-
             content: "";
             width: 5px;
             height: 100%;
@@ -78,7 +77,6 @@ function theme_custom_section_services_shortcode($atts) {
         .container-section{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            justify-content: center;
             margin: 0 66px;
         }
         .phase-item{
@@ -118,7 +116,7 @@ function theme_custom_section_services_shortcode($atts) {
             .container-section{
                 grid-template-columns: initial;
                 gap: 16px;
-                margin: auto;
+                margin: 0 16px;
                 border-left: #8DC1C3 solid 4px;
             }
             .space-time-line{
@@ -126,7 +124,11 @@ function theme_custom_section_services_shortcode($atts) {
                 height: 20px;
             }
             .custom-section{
+                padding: 24px 24px;
                 border-bottom:none;
+            }
+            .custom-section h3{
+                padding-left: 0px;
             }
             .phase-item{
                 border-top: 1px dashed #349094 ;
@@ -222,17 +224,18 @@ function theme_custom_section_between_shortcode($atts) {
 
         .picture1{
             background: rgb(185,218,218);
-            /* background: linear-gradient(90deg, rgba(185,218,218,1) 0%, rgba(151,199,200,0.74) 53%, rgba(52,144,148,0) 100%); */
 
 
-            background:linear-gradient(90deg, #B9DADA 0%, rgba(151, 199, 200, 0.74) 53.02%, rgba(52, 144, 148, 0.00) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 60%, rgba(255, 255, 255, 0.00) 99.89%),  url('<?php echo get_template_directory_uri(); ?>/img/vignette1.webp') no-repeat right ;
+            background:linear-gradient(90deg, #B9DADA 0%, rgba(151, 199, 200, 0.74) 53.02%, rgba(52, 144, 148, 0.00) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 60%, rgba(255, 255, 255, 0.00) 99.89%),  url('<?php echo get_template_directory_uri(); ?>/img/compare-gauche-image-mobil.webp') no-repeat right ;
             /* background:linear-gradient(90deg, rgba(185,218,218,1) 0%, rgba(151,199,200,0.74) 53%, rgba(52,144,148,0) 100%), url('<?php echo get_template_directory_uri(); ?>/img/home-vignette1.webp') no-repeat right ; */
             box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1) inset;
         }
         .picture2{
-            background:  linear-gradient(90deg, #B9DADA 0%, rgba(151, 199, 200, 0.74) 53.02%, rgba(52, 144, 148, 0.00) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 60%, rgba(255, 255, 255, 0.00) 99.89%), url('<?php echo get_template_directory_uri(); ?>/img/home-vignette2.webp') no-repeat right;
+            background:  linear-gradient(90deg, #B9DADA 0%, rgba(151, 199, 200, 0.74) 53.02%, rgba(52, 144, 148, 0.00) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 60%, rgba(255, 255, 255, 0.00) 99.89%), url('<?php echo get_template_directory_uri(); ?>/img/compare-droite-image-mobil.webp') no-repeat right;
             box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1) inset;
         }
+
+
         @media screen and (max-width:1000px){
             .containerPresentation{
                 grid-template-columns:1fr;
@@ -242,7 +245,14 @@ function theme_custom_section_between_shortcode($atts) {
                 line-height: 16px;
             }
         }
+        @media screen and (max-width:913px){
+            
+            .containerPresentation{
+                padding: 0 24px;
+            }
+        }
         @media screen and (max-width:662px){
+ 
             .vignette{
                 height: 422px;
                 box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1) inset;
@@ -250,10 +260,10 @@ function theme_custom_section_between_shortcode($atts) {
 
 
             .picture1{
-                background:linear-gradient(180deg, #B9DADA 47.07%, rgba(52, 144, 148, 0) 100%) ,  url('<?php echo get_template_directory_uri(); ?>/img/home-vignette1.webp') no-repeat bottom ;
+                background:linear-gradient(180deg, #B9DADA 47.07%, rgba(52, 144, 148, 0) 100%) ,  url('<?php echo get_template_directory_uri(); ?>/img/compare-gauche-image-laptop.webp') no-repeat bottom ;
             }
             .picture2{
-                background: linear-gradient(180deg, #B9DADA 47.07%,#34909400 100%), url('<?php echo get_template_directory_uri(); ?>/img/home-vignette2.webp') no-repeat bottom;
+                background: linear-gradient(180deg, #B9DADA 47.07%,#34909400 100%), url('<?php echo get_template_directory_uri(); ?>/img/compare-droite-image-laptop.webp') no-repeat bottom;
             }
         }
         @media screen and (max-width:498px) {

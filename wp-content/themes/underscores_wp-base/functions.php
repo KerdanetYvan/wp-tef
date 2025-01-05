@@ -134,6 +134,10 @@ function my_stater_theme_widgets_init() {
 }
 add_action( 'widgets_init', 'my_stater_theme_widgets_init' );
 
+
+
+
+
 /**
  * Enqueue scripts and styles.
  */
@@ -225,14 +229,7 @@ add_theme_support( 'custom-header', $args );
 
 // fonctions qui va permettre de charger les fichiers css et js 
 function capitaine_register_assets() {
-    
-    // Déclarer le fichier style.css à la racine du thème
-    wp_enqueue_style( 
-        'capitaine',
-        get_stylesheet_uri()
-    );
 	wp_enqueue_script('script-js',get_template_directory_uri(). '/app.js');//on inclu le script js
-
 }
 add_action('wp_enqueue_scripts','capitaine_register_assets');
 
