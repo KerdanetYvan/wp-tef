@@ -182,6 +182,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 // modif james yann yavan 
 
 
+
+// activations des shortcode 
+require get_template_directory() . '/inc/shortcodes.php';
+
+
 // fonctions qui active le mode logo dans wordPress
 function theme_prefix_setup() {
 	add_theme_support( 'custom-logo', array(
@@ -208,5 +213,27 @@ function register_footer_menus() {
 }
 add_action('init', 'register_footer_menus');
 
+// permet d'activer le mode bannière
+$args = array(
+    // on peut spécifier la taille apr défaut 
+	'flex-width'    => true,
+	'width'         => 437,
+	'flex-height'    => true,
+	'height'        => 845,
+);
+add_theme_support( 'custom-header', $args );
+
+// fonctions qui va permettre de charger les fichiers css et js 
+function capitaine_register_assets() {
+    
+    // Déclarer le fichier style.css à la racine du thème
+    wp_enqueue_style( 
+        'capitaine',
+        get_stylesheet_uri()
+    );
+	wp_enqueue_script('script-js',get_template_directory_uri(). '/app.js');//on inclu le script js
+
+}
+add_action('wp_enqueue_scripts','capitaine_register_assets');
 
 // modif james yann yavan 

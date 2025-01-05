@@ -29,7 +29,6 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'my-stater-theme' ); ?></a>
 
 	<header id="masthead" class="site-header">
 		<div id="prim-menu">
@@ -45,12 +44,6 @@
 				<!-- logo  -->
 				<?php endif; ?>
 
-				<!-- menu hamburger qui -->
-				<div class="menuHamburger">        
-					<div id="barre1"></div>
-					<div id="barre2"></div>
-				</div>
-				<!-- fin du menu hamburegr  -->
 				<?php
 				if (has_nav_menu('menu-1')) {
 					wp_nav_menu(array(
@@ -74,6 +67,13 @@
 				));
 			}
 			?>
+			<!-- menu hamburger qui -->
+			<div class="menuHamburger">        
+				<div id="barre1"></div>
+				<div id="barre2"></div>
+			</div>
+			<!-- fin du menu hamburegr  -->
+
 		</div>
 
 		<!-- <div id="menu-button">

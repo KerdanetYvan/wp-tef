@@ -20,7 +20,7 @@ function theme_custom_section_services_shortcode($atts) {
 
     ob_start();
     ?>
-    <sectio class="custom-section">
+    <section class="custom-section">
         <h3>Phases de l'accompagnement</h3>
         <div class="container-section">
             <div class="space-time-line"></div>

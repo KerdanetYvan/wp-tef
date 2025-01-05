@@ -66,14 +66,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	box-sizing: border-box;
 }
 
-*,*::after,*::before{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
 
-body {
-	margin: 0;
+body, button {
 	font-family: "brandon-grotesque";
 	font-style: normal;
 }
@@ -83,6 +77,9 @@ body {
 
 /* Styles par défaut pour les mobiles */
 .containerLandingPage {
+	height: 100%;
+    display: grid;
+    align-items: center;
     padding: 24px 20px; 
     gap: 20px; 
 }
@@ -131,6 +128,9 @@ body {
 .gridPictureLanding{
 	display: none;
 }
+#custom-header{
+	display: none;
+}
 /* Styles pour les écrans moyens */
 @media (min-width: 768px) {
     .containerLandingPage {
@@ -168,19 +168,33 @@ body {
 	border-radius: 53px ;
 	padding: 6px 12px;
 	display: grid;
-	grid-template-columns: 5fr 1fr;
+	grid-template-columns: auto auto;
 	gap: 10px;
-	height: 30px;
+	height: 52px;
+	width: 207px;
 	align-items: center;
 	cursor: pointer;
+	font-weight: 400; 
+	font-size: 1.5rem;
 }
-.ctaLanding::after{
-	content: "";
-	background: url('./img/arrow-right.svg') no-repeat;
-	width: 100%;
-	height: 100%;
-	align-items: center;
-	display: grid;
+
+@media (min-width:1014px){
+	.gridPictureLanding{
+		display: grid;
+		z-index: -1;
+		position: absolute;
+		right: 0px;
+		top: 60px;
+	}
+	#custom-header{
+		display: grid;
+        justify-items: end;
+		position: relative;
+	}
+	#custom-header img{
+		position: absolute;
+		top: -15px;
+	}
 }
 
 @media (min-width:878px){
@@ -188,13 +202,6 @@ body {
 		font-size: 3rem;
 		max-width: 844px;
 		line-height: 77px;
-	}
-	.gridPictureLanding{
-		display: grid;
-		z-index: -1;
-		position: absolute;
-		right: 0px;
-		top: 60px;
 	}
 }
 
@@ -232,10 +239,11 @@ body {
 /*--------------------------------------------- debut du header ------------------------------------------------------------- */
 #masthead {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 	justify-items: center;
 	font-size: large;
 	padding: 12px 40px;
+	justify-content: space-between;
 }
 
 .class-header-menu{
@@ -250,20 +258,13 @@ body {
 	text-align: center;
 }
 
-#primary-menu {
-	display: grid;
-	grid-template-columns:  repeat(auto-fit, minmax(100px,1fr));
-}
 
 #primary-menu li, #primary-menu-2 li {
 	list-style: none;
 	margin-right: 5px;
 }
 
-#masthead a {
-	text-decoration: none;
-	color: black;
-}
+
 
 #menu-button{
 	width: 100%;
@@ -282,33 +283,113 @@ body {
 	background-color: #369094;
 	color: white;
 }
+
 /* partie james yann  */
 
 #prim-menu {
 	display: grid;
-	grid-template-columns: auto 1fr ;
+	grid-template-columns: auto auto ;
 	width: 100%;
 	align-items: center;
-	justify-content: center;
-	gap: 24px;
+	justify-content: space-between;
 }
 
-#primary-menu{
-	display: grid;
-	grid-template-columns: repeat(5, auto) ;
-	gap: 24px;
-}
+
 #primary-menu li a{
 	white-space: nowrap;
 
 }
-#primary-menu-2{
-	display: grid;
-	grid-template-columns: 1fr 1fr ;
+
+/* menu burger  */
+.off{
+    display: none;
+}
+.hide{
+    display: grid;
+
+    transform: translateX(50%);/* on indique ici que notre menu va transter de de la droite vers la gauche, d'une distance équivalante à 50% de l'écran*/
+    animation: apparition .6s ease-in-out forwards;/*on utilise animation pour créer une animation que l'on nomme apparition entre du styles css qui va durer 0.6s rapide au début et lent à la fin*/
+    /*forwards sert à faire en sorte que a la fin de l'animmation le menu hamburegr reste fixe*/
+    opacity: 0;/* opacity 0 pour que notre éléments soit invisible au début puis apparaît progressivement grace au keyframes*/
+}
+/* nous sert a créer l'annimation d'apparition du menu nav sur la version mobil */
+@keyframes apparition { /*permet de déclarer un ensemble d'étaple clée pour l'animation apparition*/
+    100%{/*Cela indique que les styles spécifiés à l'intérieur des accolades suivantes s'appliqueront lorsque l'animation atteindra 100% de sa progression. En d'autres termes, à la fin de l'animation.*/
+        opacity: 1;/*pour que l'élément soit visible à la fin */
+        transform:none;  /*Cela réinitialise toute transformation appliquée à l'élément*/  
+    }
 }
 .menuHamburger{
-	display: none;
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    right: 24px;
+    top: 81px;
+    z-index: 2;
+    border-radius: 10px;
 }
+.menuHamburger div{
+	border: solid 1px black;
+	width: 70%;
+	margin: 31% 15% 0;
+}
+
+/*On donne une position finale aux 2 barres du menu hamburger */
+.croix{
+	position: absolute;
+	top: 3px;
+	transition: 0.5s;
+
+}
+/* classe qui vont gérer la rotations des barre du menu hamburger  */
+.angleBarre1{
+	transform: rotate(45deg);
+
+}
+.angleBarre2{
+	transform: rotate(-45deg);
+}
+
+/* version tablette / laptop  */
+@media screen and (min-width : 1000px) {
+    /* on desactive le menu hamburger au moment ou on sort du mode mobile  */
+	.menuHamburger{
+		display: none;
+	}
+}
+
+/* version tablette / laptop  */
+@media screen and (min-width : 913px) {
+    /* responsive pour la page article  */
+    #containerArticleImage{
+        grid-template-columns:repeat(3,3fr);
+    }
+    /* on desactive le menu hamburger au moment ou on sort du mode mobile  */
+    .menuHamburger{
+        display: none;
+    }
+    /* on dispose en ligne le menu en version laptop  */
+
+	#primary-menu{
+		display: grid;
+		grid-template-columns: repeat(5, auto) ;
+		gap: 24px;
+	}
+	#primary-menu-2{
+		display: grid;
+		grid-template-columns: auto ;
+		align-items: center;
+		gap: 24px;
+	}
+
+
+
+}
+
+
+
+/* fin du menu burger  */
 
 .container-menu-1{
 	display: grid;
@@ -316,11 +397,71 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+.menu-item-type-custom{
+    border-radius: 50px;
+    border: none;
+    background-color: #369094;
+    height: 52px;
+    align-items: center;
+    padding: 0 24px;
+	
+}
+
+
+
+.menu-item-type-custom a, .menu-item-type-post_type a{
+	text-decoration: none;
+	font-weight: 400;
+	font-size: 1.5rem;
+}
+.menu-item-type-post_type a {
+	color: black;
+}
+.menu-item-type-custom a{
+	color:white;
+}
+.menu-item-type-custom{
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 12px;
+}
+.menu-item-type-custom::after, .ctaLanding::after{
+	content: "";
+	display: grid;
+	width: 15px;
+	height: 18px;
+	background: url("./img/arrow-right.svg") no-repeat;
+}
 
 
 
 
 /*--------------------------------------------------------- fin header ------------------------------------------------------------- */
+
+/* landing page  */
+#primary{
+	height: 691px;
+}
+
+
+
+/* landing page  */
+
+
+/* ------------------------------------ footer --------------------------------------------------------------- */
+footer .menu-item a{
+	font-size: 1rem;
+}
+
+@media screen and (min-width:440px){
+	footer .menu-item a{
+		font-size: 1.5rem;
+	}
+}
+
+
+
+/* ------------------------------------ footer --------------------------------------------------------------- */
 
 
 
