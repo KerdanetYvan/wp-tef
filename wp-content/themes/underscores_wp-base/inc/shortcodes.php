@@ -286,6 +286,11 @@ function theme_custom_section_between_shortcode($atts) {
 
 }
 
+// Ajout des shortcodes pour services
+function theme_custom_services() {
+    
+}
+
 
 
 add_shortcode('custom_section_services', 'theme_custom_section_services_shortcode');
