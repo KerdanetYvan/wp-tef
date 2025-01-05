@@ -333,7 +333,7 @@ function theme_custom_service($atts) {
 
 function theme_custom_stage($atts) {
     $atts = shortcode_atts([
-        'image' => 'default',
+        'image' => 'undefined',
     ], $atts);
 
     ob_start(); ?>
