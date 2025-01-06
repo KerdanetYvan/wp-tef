@@ -327,7 +327,7 @@ function theme_custom_service($atts) {
         }
 
         .service {
-            padding: 10px;
+            padding: 16px 25.5px;
             background-color: #5BA4A7;
             border-radius: 20px;
             min-height: 330px;
@@ -346,8 +346,8 @@ function theme_custom_service($atts) {
 
         .list {
             list-style-type: disc;
-            list-style-position: inside;
-            padding-left: 5px;
+            list-style-position: outside;
+            padding-left: 15px;
         }
 
         .description_service {
