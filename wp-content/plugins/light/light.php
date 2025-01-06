@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: highlighting 
-Description: permet de mettre en avant des articles
+Description: Plugin qui permet de mettre en avant des articles
 version: 1.0 
 */
 
@@ -13,7 +13,6 @@ function highlighting() {
 
 add_action('admin_menu', 'highlighting_add_admin_menu');
 add_action('admin_init', 'highlighting_settings_init');
-
 function highlighting_add_admin_menu() { 
     add_options_page(
         'Highlighting', 
@@ -51,16 +50,6 @@ function highlighting_section_callback() {
 }
 function manager_highlighting(){
     $options = get_option('highlighting_data', []);
-    // echo'<pre>';
-    // print_r($options);
-    // echo'</pre>';
-    
-    // $args = [
-    //     'post_type'      => 'post',
-    //     'posts_per_page' => -1,
-    // ];
-
-    // $posts = get_posts($args);
 
     $posts = get_posts();
 
