@@ -17,41 +17,50 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-		<?php
-		if ( have_posts() ) :
+      <article class="containerLandingPage">
+         <header>
+         <h1 class="mainMenu">Un <span class="unedrlineMain">accompagnement</span> sur <span class="surroundedMain">mesure</span>  pour vos enfants</h1>
+         <p class="landingPresentation">“Chaque pas, même petit, est une victoire vers l'autonomie et la confiance en soi.”</p>
+         <button class="ctaLanding">Prendre rendez-vous</button>
+         <div class="gridPictureLanding">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/mask-group.webp" alt="image landing 1">
+         </div>
+         <?php wp_body_open(); ?>
+            <div class="containerArticle"><?php
+            //  the_title()
+               ?></div>
+         </header>
+         <?php 
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
+         $datas = highlighting();
+         if(!empty($datas)){
+            foreach($datas as $data){
+               $article = get_post($data);
+               $title = $article->post_title;
+               $contenu = $article->post_content;
+               $date = $article->post_date;
+               $date = $article->post_date;
+               echo $title;
+               echo $contenu;
+               echo $date;
+            }
+         }else {
+            echo '<p>Aucun article mis en avant !</p>';
+         }
+         // get_post($data[72]);
+         // $title = $billet->post_title;
+         // $date = $billet->post_date;
+         // $contenu = $billet->post_content;
+         ?>
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+      </article>
+	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <?php endwhile; else: ?>
+       <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+    <?php endif; ?>
 
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();

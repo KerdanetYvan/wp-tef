@@ -60,50 +60,208 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document   ========================================================================== */
-body {
+*,*::after,*::before{
 	margin: 0;
-	font-family: "brandon-grotesque", sans-serif;
-	font-weight: 300;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+body, button {
+	font-family: "brandon-grotesque";
 	font-style: normal;
 }
 
+/* image landing doit sipara a 1000px  */
+/* let texte ne doit pas aller sur l'image et pas */
+
+/* Styles par défaut pour les mobiles */
+.containerLandingPage {
+	height: 100%;
+    display: grid;
+    align-items: start;
+    padding: 24px 20px; 
+    gap: 20px; 
+}
+
+.mainMenu {
+    font-weight: 900;
+    font-size: 24px;
+    text-transform: uppercase;
+    line-height: 33px;
+
+}
+
+.mainMenu .surroundedMain, .mainMenu .unedrlineMain {
+    position: relative;
+}
+
+.mainMenu .unedrlineMain::after {
+    position: absolute;
+    display: grid;
+    content: "";
+    background: url('./img/underline.svg') no-repeat;
+    width: 100%;
+    height: 24px;
+    left: 0px;
+    top: 27px;
+}
+
+
+.landingPresentation {
+    font-size: 16px; /* Text plus petit pour mobile */
+	padding-top: 32px;
+	padding-bottom: 80px;
+}
+
+.surroundedMain::after {
+    position: absolute;
+    display: grid;
+    content: "";
+    background: url('./img/Ellipse.svg') no-repeat center;
+    width: 120%;
+    height: 120%;
+    left: -11px;
+    top: 0px;
+	transform: rotate(180deg);
+}
+.gridPictureLanding{
+	display: none;
+}
+#custom-header{
+	display: none;
+}
+/* Styles pour les écrans moyens */
+@media (min-width: 768px) {
+    .containerLandingPage {
+        padding: calc(32px + 1vmin) 30px;
+        gap: 30px;
+    }
+
+    .mainMenu {
+        font-size: clamp(48px, 6vmin, 64px);
+        line-height: 75px;
+    }
+
+    .mainMenu .unedrlineMain::after {
+        height: 32px;
+        top: 62px;
+    }
+
+    .landingPresentation {
+        font-size: 20px;
+    }
+
+    .surroundedMain::after {
+        width: 120%;
+        height: 120%;
+        left: -12px;
+        top: -10px;
+		transform: rotate(360deg);
+
+    }
+}
+.ctaLanding{
+	background: #349094;
+	color: #ffff;
+	border: none;
+	border-radius: 53px ;
+	padding: 6px 12px;
+	display: grid;
+	grid-template-columns: auto auto;
+	gap: 10px;
+	height: 52px;
+	width: 207px;
+	align-items: center;
+	cursor: pointer;
+	font-weight: 400; 
+	font-size: 1.5rem;
+}
+
+@media (min-width:1014px){
+	.gridPictureLanding{
+		display: grid;
+		z-index: -1;
+		position: absolute;
+		right: 0px;
+		top: 60px;
+	}
+	#custom-header{
+		display: grid;
+        justify-items: end;
+		position: relative;
+	}
+	#custom-header img{
+		position: absolute;
+		top: -42px;
+	}
+}
+
+@media (min-width:878px){
+	.mainMenu{
+		font-size: 3rem;
+		max-width: 844px;
+		line-height: 77px;
+	}
+}
+
+/* Styles pour les écrans larges */
+@media (min-width: 1200px) {
+    .containerLandingPage {
+        padding: calc(48px + 1vmin) 40px;
+        gap: 43px;
+    }
+    .mainMenu .unedrlineMain::after {
+        height: 42px;
+        top: 57px;
+    }
+
+    .landingPresentation {
+        font-size: 24px;
+    }
+
+    .surroundedMain::after {
+        width: 115%;
+        height: 115%;
+        left: -9px;
+        top: -5px;
+    }
+}
+
+/* .surround-svg {
+    width: clamp(120%, 140%, 160%);
+} */
+
+
+
+
+
+/*--------------------------------------------- debut du header ------------------------------------------------------------- */
 #masthead {
 	width: 100%;
 	display: grid;
-	grid-template-columns: 5fr 1fr;
+	grid-template-columns: 1fr;
+	justify-items: center;
 	font-size: large;
+	padding: 12px 24px;
+	justify-content: space-between;
 }
 
-#prim-menu {
+.class-header-menu{
 	display: grid;
-	grid-template-columns: 100px 1fr;
-	width: 100%;
-	align-items: center;
-	justify-content: center;
-}
-
-#prim-menu img {
-	padding-inline: 10px;
 }
 
 #prim-menu h1 {
 	text-align: center;
 }
 
-#primary-menu {
-	display: grid;
-	grid-template-columns:  repeat(auto-fit, minmax(100px,1fr));
-}
 
-#primary-menu li {
+#primary-menu li, #primary-menu-2 li {
 	list-style: none;
 	margin-right: 5px;
 }
 
-#masthead a {
-	text-decoration: none;
-	color: black;
-}
+
 
 #menu-button{
 	width: 100%;
@@ -125,6 +283,242 @@ body {
 	grid-template-columns: 5fr 1fr;
 	align-items: center;
 }
+
+/* partie james yann  */
+
+#prim-menu {
+	display: grid;
+	grid-template-columns: auto auto ;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+}
+
+
+#primary-menu li a{
+	white-space: nowrap;
+
+}
+
+/* menu burger  */
+.off{
+    display: none;
+}
+.hide{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: fixed;
+    padding: 24px;
+    right: 0;
+    top: 0px;
+    z-index: 1;
+	background: rgba(255, 255, 255, 1);
+    transform: translateX(50%);/* on indique ici que notre menu va transter de de la droite vers la gauche, d'une distance équivalante à 50% de l'écran*/
+    animation: apparition .6s ease-in-out forwards;/*on utilise animation pour créer une animation que l'on nomme apparition entre du styles css qui va durer 0.6s rapide au début et lent à la fin*/
+    /*forwards sert à faire en sorte que a la fin de l'animmation le menu hamburegr reste fixe*/
+    opacity: 0;/* opacity 0 pour que notre éléments soit invisible au début puis apparaît progressivement grace au keyframes*/
+    height: 645px;
+	width: 315px;
+}
+#primary-menu{
+	padding-top: 104px;
+}
+/* on désactive le backgound du 2eme menu et on met les éléments en bas de notre contenur hide pour simuler un effet space between */
+.hide#primary-menu-2{
+	background: none;
+	justify-content: end;
+}
+/* on active en mode mobil l'étiquette du menu hamburger pour permettre de mettre le numéro du client  */
+#primary-menu-2 .menu-item-type-taxonomy{
+	display: grid;
+	border: 2.5px solid rgba(52, 144, 148, 1);
+	width: 251px;
+	height: 52px;
+	padding: 0px 24px;
+	border-radius: 53px;
+}
+#primary-menu-2 .menu-item-type-taxonomy a{
+	font-size: 24px;
+	font-weight: 420;
+	line-height: 34.32px;
+	text-decoration: none;
+	color: rgba(52, 144, 148, 1);
+	cursor: none;
+	display: grid;
+	grid-template-columns: auto auto;
+	align-items: center;
+
+
+}
+/* icone phone de l'étiquette  */
+#primary-menu-2 .menu-item-type-taxonomy a::before{
+	display: block;
+	content: "";
+	background: url("./img/Icone-phone.svg") no-repeat;
+	width: 100%;
+	height: 20px;
+
+}
+
+
+/* nous sert a créer l'annimation d'apparition du menu nav sur la version mobil */
+@keyframes apparition { /*permet de déclarer un ensemble d'étaple clée pour l'animation apparition*/
+    100%{
+        opacity: 1;/*pour que l'élément soit visible à la fin */
+        transform:none;  /*Cela réinitialise toute transformation appliquée à l'élément*/  
+    }
+}
+.menuHamburger {
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    z-index: 2;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+}
+.menuHamburger div{
+	border: solid 1px black;
+	width: 70%;
+	margin: 31% 15% 0;
+}
+
+/*On donne une position finale aux 2 barres du menu hamburger */
+.croix{
+	position: absolute;
+	top: 3px;
+	transition: 0.5s;
+
+}
+/* classe qui vont gérer la rotations des barre du menu hamburger  */
+.angleBarre1{
+	transform: rotate(45deg);
+
+}
+.angleBarre2{
+	transform: rotate(-45deg);
+}
+
+
+/* version tablette / laptop  */
+@media screen and (min-width : 913px) {
+	/* responsive navbar  */
+	#masthead {
+		padding: 12px 40px;
+	}
+    /* responsive pour la page article  */
+    #containerArticleImage{
+        grid-template-columns:repeat(3,3fr);
+    }
+    /* on desactive le menu hamburger au moment ou on sort du mode mobile  */
+    .menuHamburger{
+        display: none;
+    }
+    /* on dispose en ligne le menu en version laptop  */
+	#primary{
+		height: 691px;
+	}
+	/* on désactive en mode pc l'étiquette du menu hamburger pour permettre de mettre le numéro du client  */
+	#primary-menu-2 .menu-item-type-taxonomy{
+		display: none;
+	}
+
+
+	#primary-menu{
+		display: grid;
+		grid-template-columns: repeat(5, auto) ;
+		gap: 24px;
+		padding-top:0px ;
+	}
+	#primary-menu-2{
+		display: grid;
+		grid-template-columns: auto ;
+		align-items: center;
+		gap: 24px;
+	}
+	.containerLandingPage{
+		align-items: center;
+	}
+	
+}
+
+
+
+/* fin du menu burger  */
+
+.container-menu-1{
+	display: grid;
+	grid-template-columns: auto 1fr;
+	justify-content: center;
+	align-items: center;
+}
+.menu-item-type-custom{
+    border-radius: 50px;
+    border: none;
+    background-color: #369094;
+    height: 52px;
+    align-items: center;
+    padding: 0 24px;
+	
+}
+
+
+
+.menu-item-type-custom a, .menu-item-type-post_type a{
+	text-decoration: none;
+	font-weight: 400;
+	font-size: 1.5rem;
+}
+.menu-item-type-post_type a {
+	color: black;
+}
+.menu-item-type-custom a{
+	color:white;
+}
+.menu-item-type-custom{
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 12px;
+}
+.menu-item-type-custom::after, .ctaLanding::after{
+	content: "";
+	display: grid;
+	width: 15px;
+	height: 18px;
+	background: url("./img/arrow-right.svg") no-repeat;
+}
+
+
+
+
+/*--------------------------------------------------------- fin header ------------------------------------------------------------- */
+
+
+
+
+/* landing page  */
+
+
+/* ------------------------------------ footer --------------------------------------------------------------- */
+footer .menu-item a{
+	font-size: 1rem;
+}
+
+@media screen and (min-width:440px){
+	footer .menu-item a{
+		font-size: 1.5rem;
+	}
+}
+
+
+
+/* ------------------------------------ footer --------------------------------------------------------------- */
+
+
 
 .site-info {
 	margin: 0;
