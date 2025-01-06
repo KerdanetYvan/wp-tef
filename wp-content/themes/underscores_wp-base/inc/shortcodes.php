@@ -289,28 +289,56 @@ function theme_custom_section_between_shortcode($atts) {
 // Ajout des shortcodes pour un service
 function theme_custom_service($atts) {
     $atts = shortcode_atts([
-        'title' => 'Title service',
-        'content' => '<li>Content service</li>',
+        'title1' => 'Title service',
+        'content1' => '<li>Content service</li>',
+        'title2' => 'Title service',
+        'content2' => '<li>Content service</li>',
+        'title3' => 'Title service',
+        'content3' => '<li>Content service</li>',
+        'title4' => 'Title service',
+        'content4' => '<li>Content service</li>',
     ], $atts);
 
     ob_start(); ?>
-    <div class='service'>
-        <h4 class="blanc titre"><?= esc_html($atts["title"]); ?></h4>
-        <ul class="blanc description list"><?= wp_kses_post($atts["content"], ['li' => []]); ?></ul>
+    <div class="container_service">
+        <div class='service'>
+            <h4 class="blanc titre_service"><?= esc_html($atts["title1"]); ?></h4>
+            <ul class="blanc description_service list"><?= wp_kses_post($atts["content1"], ['li' => []]); ?></ul>
+        </div>
+        <div class='service'>
+            <h4 class="blanc titre_service"><?= esc_html($atts["title2"]); ?></h4>
+            <ul class="blanc description_service list"><?= wp_kses_post($atts["content2"], ['li' => []]); ?></ul>
+        </div>
+        <div class='service'>
+            <h4 class="blanc titre_service"><?= esc_html($atts["title3"]); ?></h4>
+            <ul class="blanc description_service list"><?= wp_kses_post($atts["content3"], ['li' => []]); ?></ul>
+        </div>
+        <div class='service'>
+            <h4 class="blanc titre_service"><?= esc_html($atts["title4"]); ?></h4>
+            <ul class="blanc description_service list"><?= wp_kses_post($atts["content4"], ['li' => []]); ?></ul>
+        </div>
     </div>
-
     <style>
+        .container_service {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            padding: 0 40px;
+        }
+
         .service {
             padding: 10px;
             background-color: #5BA4A7;
             border-radius: 20px;
+            min-height: 330px;
+            min-width: 270px;
         }
 
         .blanc {
             color: white;
         }
         
-        .titre {
+        .titre_service {
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 10px;
@@ -322,10 +350,18 @@ function theme_custom_service($atts) {
             padding-left: 5px;
         }
 
-        .description {
+        .description_service {
             font-size: 16px;
             font-weight: 390;
+            height: 100%;
             text-align: justify;
+        }
+
+        @media screen and (max-width: 780px) {
+            .container_service {
+                overflow: hidden;
+                overflow-x: scroll;
+            }
         }
     </style>
 <?php return ob_get_clean();
@@ -333,26 +369,71 @@ function theme_custom_service($atts) {
 
 function theme_custom_stage($atts) {
     $atts = shortcode_atts([
-        'image' => 'undefined',
-        'title' => 'Titre du stage',
-        'content' => 'Description du stage',
+        'image1' => 'undefined',
+        'title1' => 'Titre du stage',
+        'content1' => 'Description du stage',
+        'image2' => 'undefined',
+        'title2' => 'Titre du stage',
+        'content2' => 'Description du stage',
+        'image3' => 'undefined',
+        'title3' => 'Titre du stage',
+        'content3' => 'Description du stage',
     ], $atts);
     ob_start(); ?>
 
-    <div class="stage">
-        <img class="img" src="<?php echo get_template_directory_uri() . '/img/' . esc_html($atts['image']) . '.png'; ?>" alt="Image du stage">
-        <div class="content">
-            <h4 class="titre"><?= esc_html($atts['title']); ?></h4>
-            <p class="content"><?= esc_html($atts['content']); ?></p>
+    <div class="container_stage">
+        <div class="stage">
+            <img class="img" src="<?php echo get_template_directory_uri() . '/img/' . esc_html($atts['image1']) . '.webp'; ?>" alt="Image du stage">
+            <div class="content">
+                <h4 class="titre"><?= esc_html($atts['title1']); ?></h4>
+                <p class="content"><?= esc_html($atts['content1']); ?></p>
+                <div class="icon">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/Calculate.svg" alt="Icone calculatrice">
+                </div>
+            </div>
+        </div>
+        <div class="stage">
+            <img class="img" src="<?php echo get_template_directory_uri() . '/img/' . esc_html($atts['image2']) . '.webp'; ?>" alt="Image du stage">
+            <div class="content">
+                <h4 class="titre"><?= esc_html($atts['title2']); ?></h4>
+                <p class="content"><?= esc_html($atts['content2']); ?></p>
+                <div class="icon school">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/school.svg" alt="Icone école">
+                </div>
+            </div>
+        </div>
+        <div class="stage">
+            <img class="img" src="<?php echo get_template_directory_uri() . '/img/' . esc_html($atts['image3']) . '.webp'; ?>" alt="Image du stage">
+            <div class="content">
+                <h4 class="titre"><?= esc_html($atts['title3']); ?></h4>
+                <p class="content"><?= esc_html($atts['content3']); ?></p>
+                <div class="icon">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/Book.svg" alt="Icone livre">
+                </div>
+            </div>
         </div>
     </div>
     <style>
+        .container_stage {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            padding: 0 40px;
+        }
+
+        @media screen and (max-width: 780px) {
+            .container_stage {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .stage {
             margin: 0;
             padding: 0;
             border-radius: 20px;
             background-color: #E6F2F2;
             overflow: hidden;
+            min-height: 450px;
         }
 
         .img {
@@ -365,9 +446,93 @@ function theme_custom_stage($atts) {
         .content {
             margin: 0;
             padding: 10px;
+            position: relative;
+        }
+
+        .content h4 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .content p {
+            font-size: 16px;
+            font-weight: 390;
+            text-align: justify;
+        }
+
+        .icon {
+            position: absolute;
+            top: -65px;
+            left: calc(50% - 43px);
+            width: 78px;
+            height: 78px;
+            padding: 20px;
+            border-radius: 50%;
+            background-color: #B9DADA;
+        }
+
+        .icon img {
+            width: 38px;
+            height: 38px;
+        }
+
+        .school {
+            padding: 14px;
+        }
+
+        .school img {
+            width: 48px;
+            height: 48px;
         }
     </style>
 
+    <?php return ob_get_clean();
+}
+
+// Shortcode titre de section et description
+function theme_custom_title_desc($atts) {
+    $atts = shortcode_atts([
+        'title' => 'Titre de la section',
+        'description' => 'Description de la section',
+    ], $atts);
+    ob_start(); ?>
+
+    <div class="section">
+        <h2 class="titre_title_desc"><?= esc_html($atts['title']); ?></h2>
+        <p class="description"><?= esc_html($atts['description']); ?></p>
+    </div>
+    <style>
+        .section {
+            width: 100%;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .titre_title_desc {
+            position: relative;
+            font-size: 36px;
+            font-weight: 450;
+            margin-bottom: 20px;
+            padding-left: 18px;
+        }
+        
+        .titre_title_desc::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "";
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background: url('<?php echo get_template_directory_uri(); ?>/img/line-title.webp') no-repeat;
+        }
+
+        .description {
+            text-align: justify;
+            font-size: 24px;
+            font-weight: 420;
+        }
+    </style>
     <?php return ob_get_clean();
 }
 
@@ -375,3 +540,4 @@ add_shortcode('custom_section_services', 'theme_custom_section_services_shortcod
 add_shortcode('custom_section_between', 'theme_custom_section_between_shortcode');
 add_shortcode('custom_service', 'theme_custom_service');
 add_shortcode('custom_stage', 'theme_custom_stage');
+add_shortcode('custom_title_desc', 'theme_custom_title_desc');
