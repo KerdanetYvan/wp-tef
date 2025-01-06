@@ -134,6 +134,10 @@ function my_stater_theme_widgets_init() {
 }
 add_action( 'widgets_init', 'my_stater_theme_widgets_init' );
 
+
+
+
+
 /**
  * Enqueue scripts and styles.
  */
@@ -169,12 +173,35 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
+
 /**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+
+
+// modif james yann yavan 
+
+
+
+// activations des shortcode 
+require get_template_directory() . '/inc/shortcodes.php';
+
+
+// fonctions qui active le mode logo dans wordPress
+function theme_prefix_setup() {
+	add_theme_support( 'custom-logo', array(
+		'height'      => 100,
+		'width'       => 400,
+		'flex-width' => true,
+	    'header-text' => array( 'site-title', 'site-description' ),
+	) );
+
+}
+add_action( 'after_setup_theme', 'theme_prefix_setup' );
 
 /**
  * Functions that follow is an additional code that we added at the creation of this website
@@ -184,6 +211,26 @@ function register_footer_menus() {
     register_nav_menus(array(
         'menu-general' => __('Footer Menu 2', 'my-stater-theme'),
         'menu-3' => __('Footer Menu 3', 'my-stater-theme'),
+		'menu-1' => __('Primary Menu nav 1', 'my-stater-theme'),
+		'menu-2' => __('Primary Menu nav 2', 'my-stater-theme'),
     ));
 }
 add_action('init', 'register_footer_menus');
+
+// permet d'activer le mode bannière
+$args = array(
+    // on peut spécifier la taille apr défaut 
+	'flex-width'    => true,
+	'width'         => 437,
+	'flex-height'    => true,
+	'height'        => 845,
+);
+add_theme_support( 'custom-header', $args );
+
+// fonctions qui va permettre de charger les fichiers css et js 
+function capitaine_register_assets() {
+	wp_enqueue_script('script-js',get_template_directory_uri(). '/app.js');//on inclu le script js
+}
+add_action('wp_enqueue_scripts','capitaine_register_assets');
+
+// modif james yann yavan 
