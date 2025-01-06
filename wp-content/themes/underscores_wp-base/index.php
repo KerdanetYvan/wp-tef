@@ -16,6 +16,35 @@ get_header();
 ?>
 
    <h1 class="titreBlog">Le blog des curieux</h1>
+
+   <div class="search">
+	<!-- barre de recherche  -->
+	<?php get_search_form(); ?>
+	<!-- on récupère tout les tags qui existent  -->
+	<?php $cats = get_categories() ; 
+	// si il y a des tags 
+	if($cats){
+		?>
+		<nav class="navigationSearch">
+
+		<?php
+		foreach($cats as $cat){
+		// on retire la catégorie créer pour le numéro de telephone présent dans le menu mobil 
+			if($cat->name !== "Non classé"){
+				echo '<a href="'.get_category_link($cat->term_id). '">'. $cat->name . '</a>';
+			
+			}
+		}
+		?>
+		</nav>
+		<?php
+	}else{
+		echo '<p class="errorSearch">Aucun tag trouvé.';
+	}
+	
+	?>
+	
+</div>
 	<main class="containerArticle">
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
          <article class="cardBlog">
@@ -25,7 +54,7 @@ get_header();
                <div class="contenuArticle">
                   <?php the_content(); ?>
                </div>
-               <button>Lire l'article</button>
+               <button><a href=<?= get_permalink() ?>>Lire l'article</a></button>
             </span>
          </article>
       <?php endwhile; else: ?>
@@ -66,5 +95,5 @@ get_header();
 
 
 <?php
-// get_sidebar();
+get_sidebar();
 get_footer();

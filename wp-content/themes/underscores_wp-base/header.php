@@ -43,30 +43,32 @@
 				<h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
 				<!-- logo  -->
 				<?php endif; ?>
+				<div class="off" id="containerNavLink">
+					<?php
+					if (has_nav_menu('menu-1')) {
+						wp_nav_menu(array(
+							'theme_location' => 'menu-1',
+							'menu_id' => 'primary-menu',
+							'container' => 'nav',
+							'container_class' => 'class-header-menu',
+							// 'menu_class' => 'off'
+						));
+					}
+					?>
+					<?php
+					if (has_nav_menu('menu-2')) {
+						wp_nav_menu(array(
+							'theme_location' => 'menu-2',
+							'menu_id' => 'primary-menu-2',
+							'container' => 'nav',
+							'container_class' => 'class-header-menu-2',
+							// 'menu_class' => 'off'
+						));
+					}
+					?>
 
-				<?php
-				if (has_nav_menu('menu-1')) {
-					wp_nav_menu(array(
-						'theme_location' => 'menu-1',
-						'menu_id' => 'primary-menu',
-						'container' => 'nav',
-						'container_class' => 'class-header-menu',
-						'menu_class' => 'off'
-					));
-				}
-				?>
+				</div>
 			</div>
-			<?php
-			if (has_nav_menu('menu-2')) {
-				wp_nav_menu(array(
-					'theme_location' => 'menu-2',
-					'menu_id' => 'primary-menu-2',
-					'container' => 'nav',
-					'container_class' => 'class-header-menu-2',
-					'menu_class' => 'off'
-				));
-			}
-			?>
 			<!-- menu hamburger qui -->
 			<div class="menuHamburger">        
 				<div id="barre1"></div>

@@ -1,40 +1,59 @@
 <?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package my_stater_theme
- */
+// single.php va nous permettre de gérer l'affichage des articles
 
 get_header();
+
+
+// nous appelons la boucle wordpress 
 ?>
 
-	<main id="primary" class="site-main">
+<article>
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	<!-- on affiche l'image mise en avant de l'article  -->
+	<?php if (has_post_thumbnail()) : ?>
+		<div class="banner">
+			<?php the_post_thumbnail(); ?>
+		</div>
+	<?php endif; ?>
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+    <!-- on affiche le titre de l'article  -->
+    <div class="containerArticle">
+        <h1><?php the_title(); ?></h1>
+    </div>
+    <!-- on affiche le contenu de l'article  -->
+    <div class="contenuArticle">
+        <?php the_content()?>
+    </div>
+    
+    <!-- container qui va nous permettre de mettre la date de publication, la date de modification et l'auteur de l'article  -->
+    <div class="containerArticle creation">
+        <p>publier le <?php the_time('d/m/Y') ?></p>
+        <!-- get_the_modified_date permet de savoir le moment où l'on a modifier l'article  -->
+        <?php if(get_the_modified_date()!= get_the_date()) : ?>
+            <p>modifier le <?php the_time('d/m/Y') ?></p>
+        <?php endif ?>
+        <p>créer par : <?php the_author();?></p>
+ 
 
-			get_template_part( 'template-parts/content', get_post_type() );
+    </div>
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'my-stater-theme' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'my-stater-theme' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
 
-		endwhile; // End of the loop.
-		?>
 
-	</main><!-- #main -->
+
+
+
+
+
+    <?php endwhile; else: ?>
+		<main class="containerArticleError">
+			<p><?php _e('Aucun article ne correspond à votre recherche.'); ?></p>
+
+		</main>
+
+
+    <?php endif; ?>
+</article>
 
 <?php
-get_sidebar();
 get_footer();

@@ -228,9 +228,7 @@ body, button {
     }
 }
 
-/* .surround-svg {
-    width: clamp(120%, 140%, 160%);
-} */
+
 
 
 
@@ -287,12 +285,8 @@ body, button {
 /* partie james yann  */
 
 #prim-menu {
-	display: grid;
-	grid-template-columns: auto auto ;
-	width: 100%;
-	align-items: center;
-	justify-content: space-between;
-	position: relative;
+    width: 100%;
+    position: relative;
 }
 
 
@@ -305,25 +299,30 @@ body, button {
 .off{
     display: none;
 }
+
 .hide{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    display: grid;
     position: fixed;
     padding: 24px;
     right: 0;
     top: 0px;
     z-index: 1;
-	background: rgba(255, 255, 255, 1);
-    transform: translateX(50%);/* on indique ici que notre menu va transter de de la droite vers la gauche, d'une distance équivalante à 50% de l'écran*/
-    animation: apparition .6s ease-in-out forwards;/*on utilise animation pour créer une animation que l'on nomme apparition entre du styles css qui va durer 0.6s rapide au début et lent à la fin*/
-    /*forwards sert à faire en sorte que a la fin de l'animmation le menu hamburegr reste fixe*/
-    opacity: 0;/* opacity 0 pour que notre éléments soit invisible au début puis apparaît progressivement grace au keyframes*/
-    height: 645px;
-	width: 315px;
+    background: rgba(255, 255, 255, 1);
+    transform: translateX(50%);
+    animation: apparition .6s ease-in-out forwards;
+    opacity: 0;
+    height: 100vh;
+    width: 315px;
+    grid-template-rows: auto auto;
+    align-content: space-between;
+    z-index: 3;
 }
+
+
 #primary-menu{
 	padding-top: 104px;
+    display: grid;
+    gap: 16px;
 }
 /* on désactive le backgound du 2eme menu et on met les éléments en bas de notre contenur hide pour simuler un effet space between */
 .hide#primary-menu-2{
@@ -377,7 +376,7 @@ body, button {
     position: absolute;
     right: 0px;
     top: 50%;
-    z-index: 2;
+    z-index: 4;
     border-radius: 10px;
     transform: translate(-50%, -50%);
 }
@@ -406,6 +405,17 @@ body, button {
 
 /* version tablette / laptop  */
 @media screen and (min-width : 913px) {
+	#containerNavLink{
+		display: grid;
+		grid-template-columns: auto auto;
+		/* justify-content: space-between; */
+		align-items: center;
+		/* width: 100%; */
+		/* gap: 10px; */
+		width: 100%;
+		justify-content: space-between;
+
+	}
 	/* responsive navbar  */
 	#masthead {
 		padding: 12px 40px;
@@ -419,9 +429,7 @@ body, button {
         display: none;
     }
     /* on dispose en ligne le menu en version laptop  */
-	#primary{
-		height: 691px;
-	}
+
 	/* on désactive en mode pc l'étiquette du menu hamburger pour permettre de mettre le numéro du client  */
 	#primary-menu-2 .menu-item-type-taxonomy{
 		display: none;
@@ -451,10 +459,10 @@ body, button {
 /* fin du menu burger  */
 
 .container-menu-1{
-	display: grid;
-	grid-template-columns: auto 1fr;
-	justify-content: center;
-	align-items: center;
+    display: grid;
+    grid-template-columns: 123px auto;
+    width: 100%;
+    gap: 24px;
 }
 .menu-item-type-custom{
     border-radius: 50px;
@@ -503,13 +511,41 @@ body, button {
 	text-align: center;
 }
 .cardBlog{
-	height: 366px;
+    border-radius: 20px;
+    /* border: solid 1px red; */
+    box-shadow: 0px 2px 12px 1px rgba(49, 140, 140, 0.12);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
 
-	border-radius: 20px;
-	border: solid 1px red;
 }
 .cardBlog img {
-	z-index: 0;
+    width: 368px;
+    height: 171px;
+    z-index: 0;
+    border-radius: 0 0 20px 0;
+    position: absolute;
+}
+.containerTexteCard::after {
+	display: grid;
+	content: '';
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background: white;
+	top: -20px;
+	right: -1px;
+	/* merci chatgpt pour la partie suivante  */
+	clip-path: polygon(
+		70% 53%, 72% 50%, 74% 47%, 76% 44%, 78% 41%, 81% 36%, 84% 30%, /* Courbe supérieure droite */
+		88% 20%, 92% 10%, 100% 0,                                     /* Angle supérieur droit */
+		100% 100%,                                                   /* Bordure droite */
+		0 100%,                                                     /* Coin inférieur gauche */
+		5% 98%, 10% 96%, 15% 94%, 20% 92%,                         /* Courbe inférieure gauche */
+		25% 90%, 30% 89%, 35% 86%, 40% 83%, 44% 80%, 48% 77%, 52% 74%, 56% 71% /* Remonter */
+	);
+	  
+	  
 }
 .cardBlog p {
     overflow: hidden;
@@ -517,12 +553,18 @@ body, button {
     width: auto;
     height: 50px;
 }
+
 .containerTexteCard{
-	z-index: 1;
-	height: 235px;
-	display: grid;
-	grid-template-rows: repeat(3, 1fr);
-	padding: 24px;
+	z-index: 2;
+    height: 235px;
+    padding: 24px;
+    border-radius: 24px 0 0 0;
+    margin-top: 151px;
+    position: inherit;
+    background: white;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
 }
 .containerTexteCard h2{
 	font-size: 20px;
@@ -536,10 +578,56 @@ body, button {
 .containerArticle{
 	display: grid;
 	gap: 48px;
-	grid-template-columns:repeat(auto-fit, minmax(368px, 1fr));
+	grid-template-columns:repeat(auto-fit, minmax(272px, 368px) );
 	padding: 59px 40px;
+	justify-content: center;
 
 }
+.containerTexteCard button a{
+	color: rgba(52, 144, 148, 1);
+	text-decoration: none;
+	display: grid;
+	grid-template-columns: auto auto;
+
+}
+.containerTexteCard button a::after{
+	content: "";
+	display: flex;
+	background: url("./img/arrow-right-green.svg") no-repeat;
+    width: 15px;
+    height: 18px;
+}
+.containerTexteCard button {
+	border: 1px solid rgba(52, 144, 148, 1);
+	width: 126px;
+	height: 35px;
+	padding: 6px 12px 6px 12px;
+	gap: 8px;
+	border-radius: 53px;
+	background: none;
+	font-size: 16px;
+	font-weight: 420;
+	line-height: 22.88px;
+	text-align: center;
+}
+
+/* page article des blog et recherche */
+.banner img {
+    width: 100%;
+    height: 323px;
+    object-fit: cover;
+}
+.containerArticleError{
+	height: 50vh;
+}
+.searchArticle{
+	margin: 59px 0;
+}
+
+
+/* page article des blog  */
+
+
 
 
 /*---------------------------------------------- page blog ---------------------------------------------------------- */
