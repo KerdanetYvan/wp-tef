@@ -498,6 +498,55 @@ body, button {
 /*--------------------------------------------------------- fin header ------------------------------------------------------------- */
 
 
+/*---------------------------------------------- page blog ---------------------------------------------------------- */
+.titreBlog{
+	text-align: center;
+}
+.cardBlog{
+	height: 366px;
+
+	border-radius: 20px;
+	border: solid 1px red;
+}
+.cardBlog img {
+	z-index: 0;
+}
+.cardBlog p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
+    height: 50px;
+}
+.containerTexteCard{
+	z-index: 1;
+	height: 235px;
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+	padding: 24px;
+}
+.containerTexteCard h2{
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 20px;
+	text-align: left;
+	color: rgba(52, 144, 148, 1);
+
+
+}
+.containerArticle{
+	display: grid;
+	gap: 48px;
+	grid-template-columns:repeat(auto-fit, minmax(368px, 1fr));
+	padding: 59px 40px;
+
+}
+
+
+/*---------------------------------------------- page blog ---------------------------------------------------------- */
+
+
+
+
 
 
 /* landing page  */

@@ -15,19 +15,27 @@
 get_header();
 ?>
 
-	<main>
+   <h1 class="titreBlog">Le blog des curieux</h1>
+	<main class="containerArticle">
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+         <article class="cardBlog">
+            <?php the_post_thumbnail(); ?>
+            <span class="containerTexteCard">
+               <h2 class="titreArticle"><?php the_title() ?></h2>
+               <div class="contenuArticle">
+                  <?php the_content(); ?>
+               </div>
+               <button>Lire l'article</button>
+            </span>
+         </article>
+      <?php endwhile; else: ?>
+         <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+      <?php endif; ?>
+
+   </main>
 
 
 
-         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-         <article class="containerLandingPage">
-               <h2 class="containerArticle"><?php the_title() ?></h2>
-               <?php the_content(); ?>
-
-            </article>
-         <?php endwhile; else: ?>
-            <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-         <?php endif; ?>
         <h2>------------ plugin de mise en avant ------</h2>
         <?php 
 
@@ -56,7 +64,6 @@ get_header();
 
 
 
-	</main><!-- #main -->
 
 <?php
 // get_sidebar();
