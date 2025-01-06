@@ -419,9 +419,7 @@ body, button {
         display: none;
     }
     /* on dispose en ligne le menu en version laptop  */
-	#primary{
-		height: 691px;
-	}
+	
 	/* on désactive en mode pc l'étiquette du menu hamburger pour permettre de mettre le numéro du client  */
 	#primary-menu-2 .menu-item-type-taxonomy{
 		display: none;
