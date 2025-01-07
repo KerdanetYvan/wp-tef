@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // on récupère l'id des barre du menu hamburger pour l'annimation au moment du clic 
     let croix1 = document.getElementById('barre1');
     let croix2 = document.getElementById('barre2');
+    let isOpen = false
     // debug 
     console.log(btnMenu, menu, croix1, croix2);
     btnMenu.addEventListener('click', (event) => {
@@ -19,18 +20,21 @@ document.addEventListener("DOMContentLoaded", function() {
         croix2.classList.toggle('angleBarre2');
         // stop la propagation du click en dehors du document 
         event.stopPropagation()
-    });
-    // si on clique en dehors de la page on ferme la page du menu burger 
-    document.addEventListener('click', (event) => {
-        if(!menu.contains(event.target) && btnMenu.contains(event.target)){
-            menu.classList.toggle('hide')
-            croix1.classList.toggle('croix');
-            croix2.classList.toggle('croix');
-            croix1.classList.toggle('angleBarre1');
-            croix2.classList.toggle('angleBarre2');
-            event.stopPropagation()
+        isOpen = true
+        // si on clique en dehors de la page on ferme la page du menu burger 
+        document.addEventListener('click', (event) => {
+            if(isOpen && (!menu.contains(event.target) || btnMenu.contains(event.target))){
+                menu.classList.toggle('hide')
+                croix1.classList.toggle('croix');
+                croix2.classList.toggle('croix');
+                croix1.classList.toggle('angleBarre1');
+                croix2.classList.toggle('angleBarre2');
+                event.stopPropagation()
+                isOpen = false
 
-        }
-    })
+    
+            }
+        })
+    });
 });
 

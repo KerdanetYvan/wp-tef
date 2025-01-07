@@ -18,37 +18,7 @@ get_header();
             <h1 class="mainMenu">Un <span class="unedrlineMain">accompagnement</span> sur <span class="surroundedMain">mesure</span>  pour vos enfants</h1>
             <p class="landingPresentation">“Chaque pas, même petit, est une victoire vers l'autonomie et la confiance en soi.”</p>
             <button class="ctaLanding">Me contacter</button>
-            <!-- <div class="gridPictureLanding">
-                <img src="<?php 
-                // echo get_template_directory_uri(); 
-                ?>/img/mask-group.webp" alt="image landing 1">
-            </div> -->
         </div>
-        <?php 
-    
-        // $datas = highlighting();
-        // if(!empty($datas)){
-        //     foreach($datas as $data){
-        //         $article = get_post($data);
-        //         $title = $article->post_title;
-        //         $contenu = $article->post_content;
-        //         $date = $article->post_date;
-        //         $date = $article->post_date;
-        //         echo $title;
-        //         echo $contenu;
-        //         echo $date;
-        //     }
-        // }else {
-        //     echo '<p>Aucun article mis en avant !</p>';
-        // }
-    
-        
-        // get_post($data[72]);
-        // $title = $billet->post_title;
-        // $date = $billet->post_date;
-        // $contenu = $billet->post_content;
-        ?>
-    
     </div>
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <?php endwhile; else: ?>

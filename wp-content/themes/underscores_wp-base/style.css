@@ -195,6 +195,11 @@ body, button {
 		position: absolute;
 		top: -42px;
 	}
+	.containerLandingPage{
+		height: 691px;
+
+	}
+
 }
 
 @media (min-width:878px){
@@ -328,6 +333,10 @@ body, button {
 .hide#primary-menu-2{
 	background: none;
 	justify-content: end;
+}
+#primary-menu-2{
+	display: grid;
+	gap: 16px;
 }
 /* on active en mode mobil l'étiquette du menu hamburger pour permettre de mettre le numéro du client  */
 #primary-menu-2 .menu-item-type-taxonomy{
