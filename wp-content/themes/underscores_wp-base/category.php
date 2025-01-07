@@ -39,7 +39,7 @@ get_header();
 <!-- singel cat titel permet de sélectionner tout les titre de la catégorie  -->
 <!-- on affiche ici le titre de la catégorie -->
 <div class="containerArticle">
-    <h1>Cathégorie : <?php single_cat_title() ?></h1>
+    <h1>Catégorie : <?php single_cat_title() ?></h1>
 </div>
 <!-- on affiche ici la description de la catégorie -->
  
