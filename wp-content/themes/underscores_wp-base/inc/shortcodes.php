@@ -280,11 +280,9 @@ function theme_custom_section_between_shortcode($atts) {
 
     <?php
     return ob_get_clean();
-
-
-
-
 }
+
+
 
 
 
