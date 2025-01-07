@@ -782,27 +782,28 @@ function theme_custom_green_fade($atts) {
         .titre_green_fade {
             font-size: 24px;
             font-weight: 700;
+            margin-bottom: 12px;
         }
 
         .desc_green_fade {
             font-size: 16px;
             font-weight: 390;
+            line-height: 16px;
             text-align: justify;
             width: 50%;
         }
 
-        @media screen and (max-width: 1620px) {
+        @media screen and (max-width: 1200px) {
             .desc_green_fade {
                 width: 100%;
             }
-            
         }
 
         @media screen and (max-width: 1024px) {
             .bureau, .seance {
                 width: calc(100% - 48px);
                 margin-inline: 24px;
-            }
+            } 
         }
     </style>
 
