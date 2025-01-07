@@ -17,7 +17,7 @@ get_header();
 		<div id="div_oops">
 			<h2>Oups ! Cette page est introuvable</h2>
 			<div>
-				<a href="/wordpress-warriors">Retourner à la page d'accueil<img src="<?php echo get_template_directory_uri(); ?>/img/angle-petit-droit_vert.svg" alt="flèche droite verte" /></a>
+				<a href="/wordpress-warriors"><h4><span class="p404_disappear">Retourner à la p</span><span class="p404_appear">P</span>age d'accueil</h4><img src="<?php echo get_template_directory_uri(); ?>/img/angle-petit-droit_vert.svg" alt="flèche droite verte" /></a>
 			</div>
 		</div>
 	</main>

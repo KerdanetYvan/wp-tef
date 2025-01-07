@@ -556,6 +556,8 @@ footer .menu-item a{
 	width: 20px;
 }
 
+/* ------------------------------------ Page 404 --------------------------------------------------------------- */
+
 #div_404 {
 	width: 100%;
 	height: fit-content;
@@ -580,7 +582,7 @@ footer .menu-item a{
 	gap: 64px;
 	align-items: center;
 	padding: 40px 48px;
-	padding-bottom: 30vh;
+	padding-bottom: 20vh;
 }
 
 #div_oops h2 {
@@ -614,4 +616,33 @@ footer .menu-item a{
 #div_oops a img {
 	width: 30px;
 	height: 30px;
+}
+
+.p404_appear {
+	display: none;
+}
+
+/* responsive Page 404 */
+@media screen and (max-width: 500px) {
+	#h1_404 {
+		font-size: 133.176px;
+		height: 133.176px;
+		margin-bottom: -25px;
+	}
+
+	.p404_appear {
+		display: inline-block;
+	}
+
+	.p404_disappear {
+		display: none;
+	}
+
+	#div_oops h2 {
+		font-size: 36px;
+	}
+
+	#div_oops {
+		padding-bottom: 100%;
+	}
 }
