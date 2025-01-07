@@ -15,49 +15,55 @@
 get_header();
 ?>
 
-	<main>
+   <h1 class="titreBlog">Le blog des curieux</h1>
 
-
-
-         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-         <article class="containerLandingPage">
-               <h2 class="containerArticle"><?php the_title() ?></h2>
-               <?php the_content(); ?>
-
-            </article>
-         <?php endwhile; else: ?>
-            <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-         <?php endif; ?>
-        <h2>------------ plugin de mise en avant ------</h2>
-        <?php 
-
-         // plugin de mise en avant 
-         
-         $datas = highlighting();
-         if(!empty($datas)){
-            foreach($datas as $data){
-               $article = get_post($data);
-               $title = $article->post_title;
-               $contenu = $article->post_content;
-               $date = $article->post_date;
-               $date = $article->post_date;
-               echo $title;
-               echo $contenu;
-               echo $date;
-            }
-         }else {
-            echo '<p>Aucun article mis en avant !</p>';
-         }
-         get_post($data[72]);
-         $title = $billet->post_title;
-         $date = $billet->post_date;
-         $contenu = $billet->post_content;
+   <div class="recherche">
+      <!-- barre de recherche  -->
+      <?php get_search_form(); ?>
+      <!-- on récupère tout les tags qui existent  -->
+      <?php $cats = get_categories() ; 
+      // si il y a des tags 
+      if($cats){
          ?>
+         <ul class="navigationSearch">
 
+         <?php
+         foreach($cats as $cat){
+         // on retire la catégorie créer pour le numéro de telephone présent dans le menu mobil 
+            if($cat->name !== "Non classé"){
+                  echo'<li>';
+               echo '<a href="'.get_category_link($cat->term_id). '">'. $cat->name . '</a>';
+                  echo'</li>';
+            
+            }
+         }
+         ?>
+         </ul>
+         <?php
+      }else{
+         echo '<p class="errorSearch">Aucun tag trouvé.';
+      }
+      
+      ?>
+      
+   </div>
+	<main class="containerArticle">
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+         <article class="cardBlog">
+            <?php the_post_thumbnail(); ?>
+            <span class="containerTexteCard">
+               <h2 class="titreArticle"><?php the_title() ?></h2>
+               <div class="contenuArticle">
+                  <?php the_content(); ?>
+               </div>
+               <button><a href=<?= get_permalink() ?>>Lire l'article</a></button>
+            </span>
+         </article>
+      <?php endwhile; else: ?>
+         <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+      <?php endif; ?>
 
-
-	</main><!-- #main -->
-
+   </main>
 <?php
-// get_sidebar();
+get_sidebar();
 get_footer();

@@ -1,40 +1,92 @@
 <?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package my_stater_theme
- */
+// single.php va nous permettre de gérer l'affichage des articles
 
 get_header();
+
+
+// nous appelons la boucle wordpress 
 ?>
+<article class="containerArticleSingle">
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	<!-- on affiche l'image mise en avant de l'article  -->
+	<?php if (has_post_thumbnail()) : ?>
+		<div class="banner">
+			<?php the_post_thumbnail(); ?>
+		</div>
+	<?php endif; ?>
 
-	<main id="primary" class="site-main">
+    <div class="containerTexteArticleSingle">
+        <a href="<?= home_url(); ?>/articles" class="retourArticleSingle">Retour</a>
+        <!-- on affiche le titre de l'article  -->
+        <h1><?php the_title(); ?></h1>
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+        <!-- date et auteur de l'article  -->
+        <p class="articleSingleDateAutor"><?php the_time('d/m/Y') ?> - <?php the_author();?></p>
 
-			get_template_part( 'template-parts/content', get_post_type() );
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'my-stater-theme' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'my-stater-theme' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
+        <!-- on affiche le contenu de l'article  -->
+        <div class="contenuArticle">
+            <?php the_content()?>
+        </div>
+        <a href="<?= home_url(); ?>/articles" class="retourArticleSingle">Retour</a>
+    </div>
+    <div class="articleHilight">
+        <h2 class="titleHilightPart">Lire plus d’articles</h2>
+        <?php 
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+         // plugin de mise en avant 
+         
+        $datas = highlighting();
+        ?>
+        <div class="containerArticle">
+        <?php
+        if(!empty($datas)){
+            foreach($datas as $data){
+                $article = get_post($data);
+                $title = $article->post_title;
+                $contenu = $article->post_content;
+                $id = $article->ID;
+                $thumbnail_url = has_post_thumbnail($id) ? get_the_post_thumbnail_url($id) : null;
+                $link = $article->guid;
+                ?>
+                <article class="cardBlog">
+                    <?= '<img src="'. $thumbnail_url .'"/>'; ?>
+                    <span class="containerTexteCard">
+                        <h2 class="titreArticle"><?= $title ?></h2>
+                        <div class="contenuArticle">
+                            <?= $contenu ?>
+                        </div>
+                        <button><a href=<?php $link ?>>Lire l'article</a></button>
+                    </span>
+                </article>
+                <?php
+            }
+            ?>
+            </div>
+            <?php
+        }else {
+            echo '<p>Aucun article mis en avant !</p>';
+        }
+        ?>
+    </div>
 
-		endwhile; // End of the loop.
-		?>
 
-	</main><!-- #main -->
+
+
+
+
+
+
+
+    <?php endwhile; else: ?>
+		<main class="containerArticleError">
+			<p><?php _e('Aucun article ne correspond à votre recherche.'); ?></p>
+
+		</main>
+
+
+    <?php endif; ?>
+</article>
 
 <?php
-get_sidebar();
 get_footer();
