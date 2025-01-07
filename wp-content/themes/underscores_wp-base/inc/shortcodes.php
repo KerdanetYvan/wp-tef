@@ -791,14 +791,17 @@ function theme_custom_green_fade($atts) {
             width: 50%;
         }
 
+        @media screen and (max-width: 1620px) {
+            .desc_green_fade {
+                width: 100%;
+            }
+            
+        }
+
         @media screen and (max-width: 1024px) {
             .bureau, .seance {
                 width: calc(100% - 48px);
                 margin-inline: 24px;
-            }
-
-            .desc_green_fade {
-                width: 100%;
             }
         }
     </style>
