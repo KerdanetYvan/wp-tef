@@ -353,7 +353,7 @@ function theme_custom_service($atts) {
             text-align: justify;
         }
 
-        @media screen and (max-width: 780px) {
+        @media screen and (max-width: 1150px) {
             .container_service {
                 overflow: hidden;
                 overflow-x: scroll;
