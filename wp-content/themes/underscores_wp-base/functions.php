@@ -227,11 +227,7 @@ $args = array(
 );
 add_theme_support( 'custom-header', $args );
 
-// fonctions qui va permettre de charger les fichiers css et js 
-function capitaine_register_assets() {
-	wp_enqueue_script('script-js',get_template_directory_uri(). '/app.js');//on inclu le script js
-}
-add_action('wp_enqueue_scripts','capitaine_register_assets');
+
 
 
 
