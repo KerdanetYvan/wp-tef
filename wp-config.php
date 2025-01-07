@@ -93,6 +93,9 @@ define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
+// define('WP_ALLOW_MULTISITE', true);
+// define('FS_METHOD', 'direct');
+
 // Enregistrement des erreurs dans un fichier de log
 define( 'WP_DEBUG_LOG', true );
 
@@ -100,13 +103,13 @@ define( 'WP_DEBUG_LOG', true );
 define( 'DISALLOW_FILE_EDIT', true );
 
 // Désactivation des mises à jour automatiques
-define( 'AUTOMATIC_UPDATER_DISABLED', true );
+// define( 'AUTOMATIC_UPDATER_DISABLED', true );
 
 // Désactivation des mises à jour de plugin
-define( 'DISALLOW_FILE_MODS', true );
+// define( 'DISALLOW_FILE_MODS', true );
 
 // Désactivation des mises à jours mineures
-define( 'WP_AUTO_UPDATE_CORE', 'minor' );
+// define( 'WP_AUTO_UPDATE_CORE', 'minor' );
 
 // Utilisation du cache natif de wp
 define( 'WP_CACHE', true );

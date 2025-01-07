@@ -970,9 +970,175 @@ footer .menu-item a{
 
 /* ------------------------------------ Formulaire de contact --------------------------------------------------------------- */
 
+.mainForm {
+	display: grid;
+	gap: 16px;
+	justify-content: center;
+	align-items: center;
+}
+
+.mainForm h1{
+	text-align: center;
+	margin-bottom: 32px;
+}
+.bold{
+	font-size: 15px;
+	font-weight: 500;
+	line-height: 20px;
+	letter-spacing: 0.02em;
+
+}
+/* partie formulaire  */
+.containerForm {
+	border-radius: 20px;
+	padding: 16px;
+	background-color: #E5F2F1;
+	display: grid;
+	grid-template-columns: 1fr 373px;
+	gap: 16px;
+	justify-content: center;
+	width: fit-content;
+	margin-inline: auto;
+}
+
+.formContact {
+	display: grid;
+	grid-template-rows: 16px auto auto-fit;
+	gap: 16px;
+}
+
+.containerFields {
+	display: grid;
+	gap: 12px;
+}
+
+.details {
+	font-size: 16px;
+	font-weight: 390;
+}
+
+.containerNomPrenom {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
+}
+
+.cont {
+	display: grid;
+	gap: 8px;
+}
+
+.containerForm input, .containerForm textarea {
+	border-radius: 12px;
+	border: 1px solid #040B0B;
+	padding: 12px 16px;
+	font-size: 16px;
+	font-weight: 390;
+}
+
+.containerForm textarea {
+	max-width: 650px;
+	max-height: 225px;
+}
+
+.text_form {
+	font-size: 16px;
+	font-weight: 450;
+	line-height: 16px;
+}
+
+.btn {
+	width: fit-content;
+	height: fit-content;
+	padding: 6px 24px;
+	border-radius: 53px;
+	background: #349094;
+	font-size: 16px;
+	font-weight: 420;
+	color: white;
+	border: none;
+}
+
+.containerForm img {
+	border-radius: 12px;
+	width: 373px;
+	height: 344.73px;
+}
+
+/* partie button  */
+.containerEmailPhoneAddress{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 16px;
+	margin-bottom: 80px;
+	border-radius: 20px;
+	justify-content: center;
+}
+
+.formVignette{
+	display: grid;
+	width: 100%;
+	padding: 18px 16px;
+	height: 64px;
+	padding: 12px 16px 12px 16px;
+	background: rgba(229, 242, 241, 1);
+	border-radius: 20px;
+	grid-template-columns: 28px auto;
+	align-items: center;
+	gap: 16px;
+	cursor: pointer;
+}
+
+.formVignette::before{
+	content: "";
+	display: grid;
+	grid-template-columns: auto 1fr;
+	width: 28px;
+    height: 23px;
+}
+
+.formVignette div{
+	border-radius: 20px;
+}
+
+.phone::before{
+	background: url('./img/phone.svg') no-repeat;
+}
+
+.email::before{
+	background: url('./img/email.svg') no-repeat;
+}
+
+.adresse::before{
+	background: url('./img/adresse.svg') no-repeat;
+}
 
 
+/* partie button  */
 
+@media screen and (max-width: 900px) {
+	.containerForm {
+		grid-template-columns: 1fr;
+	}
 
+	.containerForm img {
+		display: none;
+	}
+	.containerEmailPhoneAddress{
+		grid-template-columns:  1fr;
+	}
+
+}
+
+@media screen and (max-width: 500px) {
+	.containerNomPrenom {
+		grid-template-columns: 1fr;
+		gap: 16px;
+	}
+
+	.btn {
+		width: 100%;
+	}
+}
 
 /* ------------------------------------ Formulaire de contact --------------------------------------------------------------- */
