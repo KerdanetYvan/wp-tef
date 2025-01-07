@@ -6,8 +6,7 @@ get_header();
 
 // nous appelons la boucle wordpress 
 ?>
-
-<article>
+<article class="containerArticleSingle">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	<!-- on affiche l'image mise en avant de l'article  -->
 	<?php if (has_post_thumbnail()) : ?>
@@ -16,25 +15,59 @@ get_header();
 		</div>
 	<?php endif; ?>
 
-    <!-- on affiche le titre de l'article  -->
-    <div class="containerArticle">
+    <div class="containerTexteArticleSingle">
+        <a href="<?= home_url(); ?>/articles" class="retourArticleSingle">Retour</a>
+        <!-- on affiche le titre de l'article  -->
         <h1><?php the_title(); ?></h1>
-    </div>
-    <!-- on affiche le contenu de l'article  -->
-    <div class="contenuArticle">
-        <?php the_content()?>
-    </div>
-    
-    <!-- container qui va nous permettre de mettre la date de publication, la date de modification et l'auteur de l'article  -->
-    <div class="containerArticle creation">
-        <p>publier le <?php the_time('d/m/Y') ?></p>
-        <!-- get_the_modified_date permet de savoir le moment où l'on a modifier l'article  -->
-        <?php if(get_the_modified_date()!= get_the_date()) : ?>
-            <p>modifier le <?php the_time('d/m/Y') ?></p>
-        <?php endif ?>
-        <p>créer par : <?php the_author();?></p>
- 
 
+        <!-- date et auteur de l'article  -->
+        <p class="articleSingleDateAutor"><?php the_time('d/m/Y') ?> - <?php the_author();?></p>
+
+
+        <!-- on affiche le contenu de l'article  -->
+        <div class="contenuArticle">
+            <?php the_content()?>
+        </div>
+        <a href="<?= home_url(); ?>/articles" class="retourArticleSingle">Retour</a>
+    </div>
+    <div class="articleHilight">
+        <h2 class="titleHilightPart">Lire plus d’articles</h2>
+        <?php 
+
+         // plugin de mise en avant 
+         
+        $datas = highlighting();
+        ?>
+        <div class="containerArticle">
+        <?php
+        if(!empty($datas)){
+            foreach($datas as $data){
+                $article = get_post($data);
+                $title = $article->post_title;
+                $contenu = $article->post_content;
+                $id = $article->ID;
+                $thumbnail_url = has_post_thumbnail($id) ? get_the_post_thumbnail_url($id) : null;
+                $link = $article->guid;
+                ?>
+                <article class="cardBlog">
+                    <?= '<img src="'. $thumbnail_url .'"/>'; ?>
+                    <span class="containerTexteCard">
+                        <h2 class="titreArticle"><?= $title ?></h2>
+                        <div class="contenuArticle">
+                            <?= $contenu ?>
+                        </div>
+                        <button><a href=<?php $link ?>>Lire l'article</a></button>
+                    </span>
+                </article>
+                <?php
+            }
+            ?>
+            </div>
+            <?php
+        }else {
+            echo '<p>Aucun article mis en avant !</p>';
+        }
+        ?>
     </div>
 
 

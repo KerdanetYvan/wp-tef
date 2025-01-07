@@ -17,34 +17,36 @@ get_header();
 
    <h1 class="titreBlog">Le blog des curieux</h1>
 
-   <div class="search">
-	<!-- barre de recherche  -->
-	<?php get_search_form(); ?>
-	<!-- on récupère tout les tags qui existent  -->
-	<?php $cats = get_categories() ; 
-	// si il y a des tags 
-	if($cats){
-		?>
-		<nav class="navigationSearch">
+   <div class="recherche">
+      <!-- barre de recherche  -->
+      <?php get_search_form(); ?>
+      <!-- on récupère tout les tags qui existent  -->
+      <?php $cats = get_categories() ; 
+      // si il y a des tags 
+      if($cats){
+         ?>
+         <ul class="navigationSearch">
 
-		<?php
-		foreach($cats as $cat){
-		// on retire la catégorie créer pour le numéro de telephone présent dans le menu mobil 
-			if($cat->name !== "Non classé"){
-				echo '<a href="'.get_category_link($cat->term_id). '">'. $cat->name . '</a>';
-			
-			}
-		}
-		?>
-		</nav>
-		<?php
-	}else{
-		echo '<p class="errorSearch">Aucun tag trouvé.';
-	}
-	
-	?>
-	
-</div>
+         <?php
+         foreach($cats as $cat){
+         // on retire la catégorie créer pour le numéro de telephone présent dans le menu mobil 
+            if($cat->name !== "Non classé"){
+                  echo'<li>';
+               echo '<a href="'.get_category_link($cat->term_id). '">'. $cat->name . '</a>';
+                  echo'</li>';
+            
+            }
+         }
+         ?>
+         </ul>
+         <?php
+      }else{
+         echo '<p class="errorSearch">Aucun tag trouvé.';
+      }
+      
+      ?>
+      
+   </div>
 	<main class="containerArticle">
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
          <article class="cardBlog">
@@ -62,38 +64,6 @@ get_header();
       <?php endif; ?>
 
    </main>
-
-
-
-        <h2>------------ plugin de mise en avant ------</h2>
-        <?php 
-
-         // plugin de mise en avant 
-         
-         $datas = highlighting();
-         if(!empty($datas)){
-            foreach($datas as $data){
-               $article = get_post($data);
-               $title = $article->post_title;
-               $contenu = $article->post_content;
-               $date = $article->post_date;
-               $date = $article->post_date;
-               echo $title;
-               echo $contenu;
-               echo $date;
-            }
-         }else {
-            echo '<p>Aucun article mis en avant !</p>';
-         }
-         get_post($data[72]);
-         $title = $billet->post_title;
-         $date = $billet->post_date;
-         $contenu = $billet->post_content;
-         ?>
-
-
-
-
 <?php
 get_sidebar();
 get_footer();

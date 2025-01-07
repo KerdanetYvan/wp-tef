@@ -6,7 +6,7 @@ get_header();
 // ici mon code
 // nous appelons la boucle wordpress 
 ?>
-<div class="search">
+<div class="recherche">
 	<!-- barre de recherche  -->
 	<?php get_search_form(); ?>
 	<!-- on récupère tout les tags qui existent  -->
@@ -14,21 +14,23 @@ get_header();
 	// si il y a des tags 
 	if($cats){
 		?>
-		<nav class="navigationSearch">
+		<ul class="navigationSearch">
 
 		<?php
 		foreach($cats as $cat){
 		// on retire la catégorie créer pour le numéro de telephone présent dans le menu mobil 
 			if($cat->name !== "Non classé"){
+                echo'<li>';
 				echo '<a href="'.get_category_link($cat->term_id). '">'. $cat->name . '</a>';
+                echo'</li>';
 			
 			}
 		}
 		?>
-		</nav>
+		</ul>
 		<?php
 	}else{
-		echo '<p class="errorSearch">Aucun tag trouvé.';
+		echo '<p class="errorSearch">Aucun tag trouvé.</p>';
 	}
 	
 	?>
