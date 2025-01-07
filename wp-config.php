@@ -111,6 +111,11 @@ define( 'WP_AUTO_UPDATE_CORE', 'minor' );
 // Utilisation du cache natif de wp
 define( 'WP_CACHE', true );
 
+// Activation des compressions
+define( 'COMPRESS_CSS', true );
+define( 'COMPRESS_SCRIPTS', true );
+define( 'ENFORCE_GZIP', true );
+
 /* That's all, stop editing! Happy publishing. */
 
 
