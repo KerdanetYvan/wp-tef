@@ -233,4 +233,8 @@ function capitaine_register_assets() {
 }
 add_action('wp_enqueue_scripts','capitaine_register_assets');
 
+
+
+
+
 // modif james yann yavan 

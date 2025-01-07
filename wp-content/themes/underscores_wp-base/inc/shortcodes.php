@@ -280,10 +280,6 @@ function theme_custom_section_between_shortcode($atts) {
 
     <?php
     return ob_get_clean();
-
-
-
-
 }
 
 // Ajout des shortcodes pour un service
@@ -809,6 +805,8 @@ function theme_custom_green_fade($atts) {
 
     <?php return ob_get_clean();
 }
+
+
 
 add_shortcode('custom_section_services', 'theme_custom_section_services_shortcode');
 add_shortcode('custom_section_between', 'theme_custom_section_between_shortcode');
