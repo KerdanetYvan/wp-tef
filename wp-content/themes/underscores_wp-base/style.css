@@ -566,7 +566,10 @@ footer .menu-item a{
 #h1_404 {
 	margin: 0;
 	margin-bottom: -50px;
-	font-size: 12em;
+	font-size: 257.76px;
+	height: 257.76px;
+	font-weight: 450;
+	line-height: 1;
 	color: #A3CDCE;
 	letter-spacing: 10px;
 }
@@ -574,13 +577,15 @@ footer .menu-item a{
 #div_oops {
 	background-color: #A3CDCE;
 	display: grid;
+	gap: 64px;
 	align-items: center;
+	padding: 40px 48px;
 	padding-bottom: 30vh;
 }
 
 #div_oops h2 {
 	text-align: center;
-	font-size: 3em;
+	font-size: 64px;
 	color: white;
 }
 
@@ -591,19 +596,22 @@ footer .menu-item a{
 	justify-content: center;
 }
 
-#div_oops button {
+#div_oops a {
 	width: fit-content;
 	display: grid;
-	grid-template-columns: 7fr 1fr;
+	grid-template-columns: 7fr 30px;
+	gap: 12px;
 	align-items: center;
 	background-color: white;
 	border-radius: 50px;
 	border: none;
-	font-size: 0.9em;
+	font-size: 24px;
 	color: #349094;
+	padding: 16px 24px;
+	text-decoration: none;
 }
 
-#div_oops button img {
+#div_oops a img {
 	width: 30px;
 	height: 30px;
 }
