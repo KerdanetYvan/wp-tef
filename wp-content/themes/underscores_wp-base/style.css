@@ -195,6 +195,11 @@ body, button {
 		position: absolute;
 		top: -42px;
 	}
+	.containerLandingPage{
+		height: 691px;
+
+	}
+
 }
 
 @media (min-width:878px){
@@ -228,9 +233,7 @@ body, button {
     }
 }
 
-/* .surround-svg {
-    width: clamp(120%, 140%, 160%);
-} */
+
 
 
 
@@ -245,6 +248,9 @@ body, button {
 	font-size: large;
 	padding: 12px 24px;
 	justify-content: space-between;
+	box-shadow: 0px 0.4px 7px 0px rgba(0, 0, 0, 0.1);
+	margin-bottom: 24px;
+
 }
 
 .class-header-menu{
@@ -287,12 +293,8 @@ body, button {
 /* partie james yann  */
 
 #prim-menu {
-	display: grid;
-	grid-template-columns: auto auto ;
-	width: 100%;
-	align-items: center;
-	justify-content: space-between;
-	position: relative;
+    width: 100%;
+    position: relative;
 }
 
 
@@ -305,30 +307,39 @@ body, button {
 .off{
     display: none;
 }
+
 .hide{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    display: grid;
     position: fixed;
     padding: 24px;
     right: 0;
     top: 0px;
     z-index: 1;
-	background: rgba(255, 255, 255, 1);
-    transform: translateX(50%);/* on indique ici que notre menu va transter de de la droite vers la gauche, d'une distance équivalante à 50% de l'écran*/
-    animation: apparition .6s ease-in-out forwards;/*on utilise animation pour créer une animation que l'on nomme apparition entre du styles css qui va durer 0.6s rapide au début et lent à la fin*/
-    /*forwards sert à faire en sorte que a la fin de l'animmation le menu hamburegr reste fixe*/
-    opacity: 0;/* opacity 0 pour que notre éléments soit invisible au début puis apparaît progressivement grace au keyframes*/
-    height: 645px;
-	width: 315px;
+    background: rgba(255, 255, 255, 1);
+    transform: translateX(50%);
+    animation: apparition .6s ease-in-out forwards;
+    opacity: 0;
+    height: 100vh;
+    width: 315px;
+    grid-template-rows: auto auto;
+    align-content: space-between;
+    z-index: 3;
 }
+
+
 #primary-menu{
 	padding-top: 104px;
+    display: grid;
+    gap: 16px;
 }
 /* on désactive le backgound du 2eme menu et on met les éléments en bas de notre contenur hide pour simuler un effet space between */
 .hide#primary-menu-2{
 	background: none;
 	justify-content: end;
+}
+#primary-menu-2{
+	display: grid;
+	gap: 16px;
 }
 /* on active en mode mobil l'étiquette du menu hamburger pour permettre de mettre le numéro du client  */
 #primary-menu-2 .menu-item-type-taxonomy{
@@ -377,7 +388,7 @@ body, button {
     position: absolute;
     right: 0px;
     top: 50%;
-    z-index: 2;
+    z-index: 4;
     border-radius: 10px;
     transform: translate(-50%, -50%);
 }
@@ -406,9 +417,23 @@ body, button {
 
 /* version tablette / laptop  */
 @media screen and (min-width : 913px) {
+	#containerNavLink{
+		display: grid;
+		grid-template-columns: auto auto;
+		/* justify-content: space-between; */
+		align-items: center;
+		/* width: 100%; */
+		/* gap: 10px; */
+		width: 100%;
+		justify-content: space-between;
+
+	}
 	/* responsive navbar  */
 	#masthead {
 		padding: 12px 40px;
+		box-shadow: none;
+		margin-bottom: 48px;
+
 	}
     /* responsive pour la page article  */
     #containerArticleImage{
@@ -419,7 +444,8 @@ body, button {
         display: none;
     }
     /* on dispose en ligne le menu en version laptop  */
-	
+
+ 
 	/* on désactive en mode pc l'étiquette du menu hamburger pour permettre de mettre le numéro du client  */
 	#primary-menu-2 .menu-item-type-taxonomy{
 		display: none;
@@ -449,10 +475,10 @@ body, button {
 /* fin du menu burger  */
 
 .container-menu-1{
-	display: grid;
-	grid-template-columns: auto 1fr;
-	justify-content: center;
-	align-items: center;
+    display: grid;
+    grid-template-columns: 123px auto;
+    width: 100%;
+    gap: 24px;
 }
 .menu-item-type-custom{
     border-radius: 50px;
@@ -494,6 +520,300 @@ body, button {
 
 
 /*--------------------------------------------------------- fin header ------------------------------------------------------------- */
+
+
+/*---------------------------------------------- page blog ---------------------------------------------------------- */
+.titreBlog{
+	text-align: center;
+}
+.cardBlog{
+    border-radius: 20px;
+    /* border: solid 1px red; */
+    box-shadow: 0px 2px 12px 1px rgba(49, 140, 140, 0.12);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+
+}
+.cardBlog img {
+    width: 368px;
+    height: 171px;
+    z-index: 0;
+    border-radius: 0 0 20px 0;
+    position: absolute;
+}
+.containerTexteCard::after {
+	display: grid;
+	content: '';
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background: white;
+	top: -19px;
+	right: -1px;
+	/* merci chatgpt pour la partie suivante  */
+	clip-path: polygon(
+		70% 53%, 72% 50%, 74% 47%, 76% 44%, 78% 41%, 81% 36%, 84% 30%, /* Courbe supérieure droite */
+		88% 20%, 92% 10%, 100% 0,                                     /* Angle supérieur droit */
+		100% 100%,                                                   /* Bordure droite */
+		0 100%,                                                     /* Coin inférieur gauche */
+		5% 98%, 10% 96%, 15% 94%, 20% 92%,                         /* Courbe inférieure gauche */
+		25% 90%, 30% 89%, 35% 86%, 40% 83%, 44% 80%, 48% 77%, 52% 74%, 56% 71% /* Remonter */
+	);
+	  
+	  
+}
+.cardBlog p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
+    height: 50px;
+}
+
+.containerTexteCard{
+    z-index: 2;
+    padding: 24px;
+    border-radius: 24px 0 0 0;
+    margin-top: 151px;
+    position: inherit;
+    background: white;
+    justify-content: space-between;
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+.containerTexteCard h2{
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 20px;
+	text-align: left;
+	color: rgba(52, 144, 148, 1);
+
+
+}
+.containerArticle{
+	display: grid;
+	gap: 48px;
+	grid-template-columns:repeat(auto-fit, minmax(272px, 368px) );
+	padding: 59px 40px;
+	justify-content: center;
+
+}
+.containerTexteCard button a{
+	color: rgba(52, 144, 148, 1);
+	text-decoration: none;
+	display: grid;
+	grid-template-columns: auto auto;
+
+}
+.containerTexteCard button a::after{
+	content: "";
+	display: flex;
+	background: url("./img/arrow-right-green.svg") no-repeat;
+    width: 15px;
+    height: 18px;
+}
+.containerTexteCard button {
+	border: 1px solid rgba(52, 144, 148, 1);
+	width: 126px;
+	height: 35px;
+	padding: 6px 12px 6px 12px;
+	gap: 8px;
+	border-radius: 53px;
+	background: none;
+	font-size: 16px;
+	font-weight: 420;
+	line-height: 22.88px;
+	text-align: center;
+}
+
+/* page article des blog et recherche */
+.banner img {
+    width: 100%;
+    height: 323px;
+    object-fit: cover;
+}
+.containerArticleError{
+	height: 50vh;
+}
+.searchArticle{
+	margin: 59px 0;
+}
+.recherche{
+	display: grid;
+	justify-content: center;
+	width: 100%;
+	margin-top: 59px;
+	gap: 8px;
+}
+.navigationSearch{
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+	width: 603px;
+	justify-content: center;
+
+}
+.navigationSearch li {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	border: solid 1px rgba(52, 144, 148, 1);
+	height: 24px;
+	border-radius: 6342.98px ;
+	text-align: center;
+	list-style: none;
+}
+
+
+
+
+.navigationSearch a {
+	color: rgba(4, 11, 11, 1);
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1rem;
+	text-decoration: none;
+	margin: 0 10px;
+}
+/* barre de recherche  */
+.search-form{
+	width: 689px;
+	height: 40px;
+	border-radius: 100%;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 8px;
+}
+
+.search-field{
+	background:  rgba(255, 255, 255, 1);
+	height: 40px;
+	width: 100%;
+	border-radius: 30px;
+	border: 1px solid  rgba(217, 217, 217, 1);
+	padding:12px 16px ;
+
+}
+.search-form input[type=submit]{
+	background: none;
+	border:#349094 1px solid;
+	border-radius: 40px;
+	padding: 0 10px;
+	cursor: pointer;
+}
+/* Mozilla Firefox 4 to 18 */
+
+ /* Mozilla Firefox 19+ */
+
+ /* Internet Explorer 10+ */
+.search-field ,.search-field::-webkit-input-placeholder,.search-field:-moz-placeholder,.search-field::-moz-placeholder,.search-field:-ms-input-placeholder { /* WebKit browsers */
+	padding:12px 16px ;
+}
+/* barre de recherche  */
+/* article  */
+.containerArticleSingle,.articleHilight {
+	margin:24px 0 ;
+}
+.containerTexteArticleSingle{
+	margin: 24px;
+}
+
+@media screen and (min-width:940px){
+	.containerArticleSingle{
+		margin: 48px 40px;
+	}
+
+	.containerTexteArticleSingle{
+		padding: 49px 203px;
+	}
+	
+	.containerArticleSingle h1{
+		font-size: 56px;
+		font-weight: 500;
+		line-height: 56px;
+		margin-top: 35px;
+	}
+
+	.articleHilight{
+		margin: 146px;
+	}
+}
+
+
+
+.containerArticleSingle h1{
+	color: rgba(52, 144, 148, 1);
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 27.4px;
+
+	
+}
+
+
+
+.articleSingleDateAutor{
+	color: rgba(4, 11, 11, 1);
+	font-size: 1rem;
+	font-weight: 390;
+	line-height: 16px;
+	gap: 8px;
+	grid-template-columns: 23px 1fr;
+	margin-top: 8px;
+
+
+}
+
+.retourArticleSingle{
+	grid-template-columns: 12px 1fr;
+	gap: 6.2px;
+}
+.retourArticleSingle,.articleSingleDateAutor {
+	display: grid;
+	align-items: center;
+}
+.articleSingleDateAutor::before, .retourArticleSingle::before{
+	content: "";
+	display: grid;
+
+}
+.articleSingleDateAutor::before{
+	background: url('./img/clock-single.webp') no-repeat;
+	width: 23px;
+	height: 23px;
+}
+.retourArticleSingle::before{
+	background: url('./img/vector-arrow-left.svg') no-repeat;
+	width: 23px;
+	height: 23px;
+}
+.contenuArticle{
+	margin: 31px 0;
+}
+.retourArticleSingle{
+	font-size: 16px;
+	font-weight: 450;
+	line-height: 16px;
+	color: rgba(4, 11, 11, 1);
+	text-decoration: none;
+}
+.titleHilightPart{
+	margin: 49px 0;
+
+}
+
+
+/* article  */
+
+/* page article des blog  */
+
+
+
+
+/*---------------------------------------------- page blog ---------------------------------------------------------- */
+
+
 
 
 
