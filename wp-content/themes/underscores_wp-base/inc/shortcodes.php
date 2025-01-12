@@ -131,7 +131,7 @@ function theme_custom_section_services_shortcode($atts) {
                 padding-left: 0px;
             }
             .phase-item{
-                border-top: 1px dashed #349094 ;
+                border-top: 2px dashed #349094 ;
                 border-left: none;
                 width: 300px;
                 padding-bottom: 0px;
@@ -168,8 +168,6 @@ function theme_custom_section_services_shortcode($atts) {
                 font-size: 24px;
                 line-height: 27.4px;
             }
-     
-            
         }
 
     </style>
@@ -206,6 +204,20 @@ function theme_custom_section_between_shortcode($atts) {
             gap: 24px;
             padding: 0 40px ;
         }
+        .containerPresentation section p {
+            font-size: 16px;
+            font-weight: 390;
+            line-height: 16px;
+            text-align: left;
+        }
+        .containerPresentation .picture1 p {
+            padding-right: 60%;
+        }
+        .containerPresentation .picture2 p {
+            padding-right: 49%;
+        }
+
+
         .vignette{
             border-radius: 20px;
             height: 232px;
@@ -218,14 +230,13 @@ function theme_custom_section_between_shortcode($atts) {
             font-size: 24px;
             font-weight: 700;
             line-height: 27.4px;
+            padding-right: 17%;
+
         }
 
 
 
         .picture1{
-            background: rgb(185,218,218);
-
-
             background:linear-gradient(90deg, #B9DADA 0%, rgba(151, 199, 200, 0.74) 53.02%, rgba(52, 144, 148, 0.00) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 60%, rgba(255, 255, 255, 0.00) 99.89%),  url('<?php echo get_template_directory_uri(); ?>/img/compare-gauche-image-mobil.webp') no-repeat right ;
             /* background:linear-gradient(90deg, rgba(185,218,218,1) 0%, rgba(151,199,200,0.74) 53%, rgba(52,144,148,0) 100%), url('<?php echo get_template_directory_uri(); ?>/img/home-vignette1.webp') no-repeat right ; */
             box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1) inset;
@@ -236,23 +247,22 @@ function theme_custom_section_between_shortcode($atts) {
         }
 
 
-        @media screen and (max-width:1000px){
+        @media screen and (max-width:1156px){
             .containerPresentation{
                 grid-template-columns:1fr;
+                padding: 0 24px;
+
             }
             .vignette p {
                 font-size: 16px;
                 line-height: 16px;
             }
         }
-        @media screen and (max-width:913px){
-            
-            .containerPresentation{
-                padding: 0 24px;
-            }
-        }
+
         @media screen and (max-width:662px){
- 
+            .containerPresentation .picture1 p, .vignette h3, .containerPresentation .picture2 p  {
+                padding-right:initial;
+            }
             .vignette{
                 height: 422px;
                 box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 1) inset;
@@ -322,6 +332,8 @@ function theme_custom_service($atts) {
             padding: 0 40px;
         }
 
+
+
         .service {
             padding: 16px 25.5px;
             background-color: #5BA4A7;
@@ -337,7 +349,9 @@ function theme_custom_service($atts) {
         .titre_service {
             font-size: 24px;
             font-weight: 700;
-            margin-bottom: 10px;
+            line-height: 27.4px;
+            text-align: left;
+            margin-bottom: 24px;
         }
 
         .list {
@@ -352,6 +366,17 @@ function theme_custom_service($atts) {
             height: 100%;
             text-align: justify;
         }
+
+        .description_service li{
+            font-size: 16px;
+            font-weight: 390;
+            line-height: 16px;
+            text-align: left;
+        }
+
+
+
+
 
         @media screen and (max-width: 1150px) {
             .container_service {
@@ -380,7 +405,7 @@ function theme_custom_stage($atts) {
     <div class="container_stage">
         <div class="stage">
             <img class="img" src="<?php echo get_template_directory_uri() . '/img/' . esc_html($atts['image1']) . '.webp'; ?>" alt="Image du stage">
-            <div class="content">
+            <div class="bottomCardVignette">
                 <h4 class="titre"><?= esc_html($atts['title1']); ?></h4>
                 <p class="content"><?= esc_html($atts['content1']); ?></p>
                 <div class="icon">
@@ -390,7 +415,7 @@ function theme_custom_stage($atts) {
         </div>
         <div class="stage">
             <img class="img" src="<?php echo get_template_directory_uri() . '/img/' . esc_html($atts['image2']) . '.webp'; ?>" alt="Image du stage">
-            <div class="content">
+            <div class="bottomCardVignette">
                 <h4 class="titre"><?= esc_html($atts['title2']); ?></h4>
                 <p class="content"><?= esc_html($atts['content2']); ?></p>
                 <div class="icon school">
@@ -400,7 +425,7 @@ function theme_custom_stage($atts) {
         </div>
         <div class="stage">
             <img class="img" src="<?php echo get_template_directory_uri() . '/img/' . esc_html($atts['image3']) . '.webp'; ?>" alt="Image du stage">
-            <div class="content">
+            <div class="bottomCardVignette">
                 <h4 class="titre"><?= esc_html($atts['title3']); ?></h4>
                 <p class="content"><?= esc_html($atts['content3']); ?></p>
                 <div class="icon">
@@ -417,9 +442,11 @@ function theme_custom_stage($atts) {
             padding: 0 40px;
         }
 
-        @media screen and (max-width: 780px) {
+        @media screen and (max-width: 1000px) {
             .container_stage {
                 grid-template-columns: 1fr;
+                padding: 24px 24px;
+
             }
         }
 
@@ -439,21 +466,28 @@ function theme_custom_stage($atts) {
             object-fit: cover;
         }
 
-        .content {
+        .bottomCardVignette {
             margin: 0;
-            padding: 10px;
             position: relative;
+            padding: 24px;
+            gap: 56px;
+
         }
 
-        .content h4 {
+        .bottomCardVignette h4 {
             font-size: 24px;
             font-weight: 700;
+            line-height: 27.4px;
+            text-align: left;
+            margin-bottom: 32px;
+
         }
 
-        .content p {
+        .bottomCardVignette p {
             font-size: 16px;
             font-weight: 390;
-            text-align: justify;
+            line-height: 16px;
+            text-align: left;
         }
 
         .icon {
@@ -465,6 +499,11 @@ function theme_custom_stage($atts) {
             padding: 20px;
             border-radius: 50%;
             background-color: #B9DADA;
+        }
+        @media screen and (max-width: 1000px) {
+            .bottomCardVignette {
+                padding: 18px;
+            }
         }
 
         .icon img {
@@ -495,7 +534,7 @@ function theme_custom_title_desc($atts) {
 
     <div class="section">
         <h2 class="titre_title_desc"><?= esc_html($atts['title']); ?></h2>
-        <p class="description"><?= esc_html($atts['description']); ?></p>
+        <p class="descriptionService"><?= esc_html($atts['description']); ?></p>
     </div>
     <style>
         .section {
@@ -523,10 +562,22 @@ function theme_custom_title_desc($atts) {
             background: url('<?php echo get_template_directory_uri(); ?>/img/line-title.webp') no-repeat;
         }
 
-        .description {
-            text-align: justify;
+        .descriptionService {
             font-size: 24px;
             font-weight: 420;
+            line-height: 34.32px;
+        }
+        @media screen and (max-width: 1000px) {
+            .section, .container_service, .container_stage {
+                padding: 24px 24px;
+            }
+            .descriptionService {
+                font-size: 16px;
+                font-weight: 390;
+                line-height: 16px;
+                text-align: left;
+            }
+
         }
     </style>
     <?php return ob_get_clean();
@@ -732,9 +783,11 @@ function theme_custom_section_desc($atts) {
         }
 
         .description {
-            text-align: justify;
-            font-size: 16px;
-            font-weight: 390;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 34.32px;
+            text-align: left;
+            
         }
     </style>
 

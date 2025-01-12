@@ -10,11 +10,13 @@ document.addEventListener("DOMContentLoaded", function() {
     let croix2 = document.getElementById('barre2');
     let barre3 = document.getElementById('barre3');
     let isOpen = false
-    // debug 
-    // pageXOffset est supproter par les anciens navigateurs 
+
+    // boxshadow au scroll de la page 
     document.addEventListener('scroll', () => {
-        let y = window.pageYOffset;
-        if(y> 0){
+        // pageXOffset est supproter par les anciens navigateurs 
+        let yOld = window.pageYOffset;
+        let yNew = window.scrollY;
+        if(yNew> 0 || yOld > 0){
             masthead.style.boxShadow = "0px 0.4px 7px 0px #0000001A"
         }else{
             masthead.style.boxShadow = "none"
