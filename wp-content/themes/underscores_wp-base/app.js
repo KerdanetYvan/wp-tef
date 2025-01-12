@@ -4,13 +4,26 @@ document.addEventListener("DOMContentLoaded", function() {
     // on récupere la classe et l'id que l'on à créer au moment ou l'on a créer dans wp_nav_menu 
     let btnMenu = document.querySelector('.menuHamburger');
     let menu = document.getElementById('containerNavLink');
+    let masthead = document.getElementById('masthead');
     // on récupère l'id des barre du menu hamburger pour l'annimation au moment du clic 
     let croix1 = document.getElementById('barre1');
     let croix2 = document.getElementById('barre2');
     let barre3 = document.getElementById('barre3');
     let isOpen = false
     // debug 
-    console.log(btnMenu, menu, croix1, croix2);
+    // pageXOffset est supproter par les anciens navigateurs 
+    document.addEventListener('scroll', () => {
+        let y = window.pageYOffset;
+        if(y> 0){
+            masthead.style.boxShadow = "0px 0.4px 7px 0px #0000001A"
+        }else{
+            masthead.style.boxShadow = "none"
+        }
+    })
+
+
+
+
     btnMenu.addEventListener('click', (event) => {
         // on utilise un écouteur d'évenement qui va affecter a menu la class hide pour faire apparaitre le menu  
         menu.classList.toggle('hide');
