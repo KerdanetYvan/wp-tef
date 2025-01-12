@@ -3,12 +3,17 @@
  * Template Name: Contact
  */
 
+
 get_header(); ?>
+<!-- 16.24.42.43. 2.8 -->
+
+
 
 <main class="mainForm">
-    <h1>Contactez-moi</h1>
+    <h1 class="titrePrincip">Contactez-moi !</h1>
     <section class="containerForm">
-        <form class="formContact">
+        <?= do_shortcode('[contact-form-7 id="cd62817" title="Contact form 1"]'); ?>
+        <!-- <form method="get" class="formContact">
             <p class="details">Tout les champs sont obligatoires</p>
             <div class="containerFields">
                 <div class="containerNomPrenom">
@@ -31,27 +36,27 @@ get_header(); ?>
                 </div>
             </div>
             <button type="submit" class="btn">Envoyer</button>
-        </form>
-        <img src="<?php echo get_template_directory_uri(); ?>/img/madame_au_bureau.svg" alt="Madame"/>
+        </form> -->
+        <img src="<?php the_field('image_formulaire_de_contact') ?>" alt="Madame"/>
     </section>
 
     <div class="containerEmailPhoneAddress">
         <div class="phone formVignette">
             <div>
                 <p class="bold">Téléphone</p>
-                <p>+33 0 00 00 00 00</p>
+                <p><?= get_field('numero_de_telephone_formulaire_de_contact') ?></p>
             </div>
         </div>
         <div class="email formVignette">
             <div>
                 <p class="bold">Email</p>
-                <p>Prénom.nom@gmail.com</p>
+                <p><?= get_field('email_formulaire_de_contact') ?></p>
             </div>
         </div>
         <div class="adresse formVignette">
             <div>
                 <p class="bold">Adresse</p>
-                <p>6 rue blablabla</p>
+                <p><?= get_field('adresse_formulaire_de_contact') ?></p>
             </div>
         </div>
         
@@ -60,3 +65,4 @@ get_header(); ?>
 
 <?php
 get_footer();
+

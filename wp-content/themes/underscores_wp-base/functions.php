@@ -233,7 +233,15 @@ function capitaine_register_assets() {
 }
 add_action('wp_enqueue_scripts','capitaine_register_assets');
 
-
+// Bloque l'accès à /wp-json/wp/v2/users sans bloquer les call api des plugins wordpress 
+function block_access_to_users_endpoint() {
+    // Vérifie si l'URL demandée correspond à /wp-json/wp/v2/users
+    if (strpos($_SERVER['REQUEST_URI'], '/wp-json/wp/v2/users') !== false) {
+        // Envoie une erreur 403 (Forbidden) et bloque l'accès
+        wp_die('Accès interdit', 'Accès interdit', array('response' => 403));
+    }
+}
+add_action('init', 'block_access_to_users_endpoint');
 
 
 

@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // on récupère l'id des barre du menu hamburger pour l'annimation au moment du clic 
     let croix1 = document.getElementById('barre1');
     let croix2 = document.getElementById('barre2');
+    let barre3 = document.getElementById('barre3');
     let isOpen = false
     // debug 
     console.log(btnMenu, menu, croix1, croix2);
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         croix2.classList.toggle('croix');
         croix1.classList.toggle('angleBarre1');
         croix2.classList.toggle('angleBarre2');
+        barre3.classList.toggle("off")
         // stop la propagation du click en dehors du document 
         event.stopPropagation()
         isOpen = true
@@ -29,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 croix2.classList.toggle('croix');
                 croix1.classList.toggle('angleBarre1');
                 croix2.classList.toggle('angleBarre2');
+                barre3.style.display ="block"
                 event.stopPropagation()
                 isOpen = false
 

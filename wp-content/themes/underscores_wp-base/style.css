@@ -314,7 +314,6 @@ body, button {
     padding: 24px;
     right: 0;
     top: 0px;
-    z-index: 1;
     background: rgba(255, 255, 255, 1);
     transform: translateX(50%);
     animation: apparition .6s ease-in-out forwards;
@@ -352,7 +351,7 @@ body, button {
 }
 #primary-menu-2 .menu-item-type-taxonomy a{
 	font-size: 24px;
-	font-weight: 420;
+	font-weight: 400;
 	line-height: 34.32px;
 	text-decoration: none;
 	color: rgba(52, 144, 148, 1);
@@ -373,7 +372,6 @@ body, button {
 
 }
 
-
 /* nous sert a créer l'annimation d'apparition du menu nav sur la version mobil */
 @keyframes apparition { /*permet de déclarer un ensemble d'étaple clée pour l'animation apparition*/
     100%{
@@ -382,20 +380,26 @@ body, button {
     }
 }
 .menuHamburger {
-    display: block;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    right: 0px;
-    top: 50%;
+    width: 25px;
+    height: 20px;
+    position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	
+    right: 25px;
+    top: 96px;
     z-index: 4;
-    border-radius: 10px;
-    transform: translate(-50%, -50%);
+
 }
 .menuHamburger div{
+	border-radius: 10px;
 	border: solid 1px black;
-	width: 70%;
-	margin: 31% 15% 0;
+	width: 100%;
+
+	
+
+
 }
 
 /*On donne une position finale aux 2 barres du menu hamburger */
@@ -530,7 +534,6 @@ body, button {
     border-radius: 20px;
     /* border: solid 1px red; */
     box-shadow: 0px 2px 12px 1px rgba(49, 140, 140, 0.12);
-    border-radius: 20px;
     overflow: hidden;
     position: relative;
 
@@ -621,7 +624,7 @@ body, button {
 	border-radius: 53px;
 	background: none;
 	font-size: 16px;
-	font-weight: 420;
+	font-weight: 400;
 	line-height: 22.88px;
 	text-align: center;
 }
@@ -677,7 +680,6 @@ body, button {
 }
 /* barre de recherche  */
 .search-form{
-	width: 689px;
 	height: 40px;
 	border-radius: 100%;
 	width: 100%;
@@ -756,7 +758,7 @@ body, button {
 .articleSingleDateAutor{
 	color: rgba(4, 11, 11, 1);
 	font-size: 1rem;
-	font-weight: 390;
+	font-weight: 400;
 	line-height: 16px;
 	gap: 8px;
 	grid-template-columns: 23px 1fr;
@@ -793,7 +795,7 @@ body, button {
 }
 .retourArticleSingle{
 	font-size: 16px;
-	font-weight: 450;
+	font-weight: 500;
 	line-height: 16px;
 	color: rgba(4, 11, 11, 1);
 	text-decoration: none;
@@ -890,7 +892,7 @@ footer .menu-item a{
 	margin-bottom: -50px;
 	font-size: 257.76px;
 	height: 257.76px;
-	font-weight: 450;
+	font-weight: 500;
 	line-height: 1;
 	color: #A3CDCE;
 	letter-spacing: 10px;
@@ -967,6 +969,45 @@ footer .menu-item a{
 	}
 }
 
+/* formulaire james  */
+
+
+
+.inputNameMail{
+	height: 40px;
+	width: 100%;
+}
+.inputForm{
+	padding: 12px 16px 12px 16px;
+	gap: 10px;
+	border-radius: 12px ;
+	border: solid 1px rgba(4, 11, 11, 1);
+	margin-top: 8px;
+}
+.inputTextArea{
+	width: 100%;
+	height: 67.73px;
+	max-width: 373px;
+	max-height: 195px;
+
+}
+
+.containerNomPrenom {
+	display: grid;
+	grid-template-columns: repeat(2,0.5fr) ;
+	gap: 12px;
+}
+
+.wpcf7-response-output{
+	position:fixed;
+	top: 20px;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	margin: auto;
+}
+
+/* formulaire james  */
+
 
 /* ------------------------------------ Formulaire de contact --------------------------------------------------------------- */
 
@@ -1014,27 +1055,19 @@ footer .menu-item a{
 
 .details {
 	font-size: 16px;
-	font-weight: 390;
+	font-weight: 400;
+	margin-bottom: 16px;
+
 }
 
-.containerNomPrenom {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 12px;
-}
+
 
 .cont {
 	display: grid;
 	gap: 8px;
 }
 
-.containerForm input, .containerForm textarea {
-	border-radius: 12px;
-	border: 1px solid #040B0B;
-	padding: 12px 16px;
-	font-size: 16px;
-	font-weight: 390;
-}
+
 
 .containerForm textarea {
 	max-width: 650px;
@@ -1043,27 +1076,35 @@ footer .menu-item a{
 
 .text_form {
 	font-size: 16px;
-	font-weight: 450;
+	font-weight: 500;
 	line-height: 16px;
 }
-
+input::placeholder, .btn{
+	font-family: "brandon-grotesque";
+}
 .btn {
 	width: fit-content;
-	height: fit-content;
+	height: 35px;
 	padding: 6px 24px;
 	border-radius: 53px;
 	background: #349094;
-	font-size: 16px;
-	font-weight: 420;
+	font-size: 1rem;
+	font-weight: 400;
 	color: white;
 	border: none;
+	cursor: pointer;
+	text-align: center;
 }
+
+
 
 .containerForm img {
 	border-radius: 12px;
 	width: 373px;
 	height: 344.73px;
 }
+
+
 
 /* partie button  */
 .containerEmailPhoneAddress{
@@ -1078,9 +1119,8 @@ footer .menu-item a{
 .formVignette{
 	display: grid;
 	width: 100%;
-	padding: 18px 16px;
 	height: 64px;
-	padding: 12px 16px 12px 16px;
+	padding: 12px 16px;
 	background: rgba(229, 242, 241, 1);
 	border-radius: 20px;
 	grid-template-columns: 28px auto;
@@ -1139,6 +1179,6 @@ footer .menu-item a{
 	.btn {
 		width: 100%;
 	}
-}
+} 
 
 /* ------------------------------------ Formulaire de contact --------------------------------------------------------------- */

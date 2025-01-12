@@ -73,6 +73,7 @@
 			<div class="menuHamburger">        
 				<div id="barre1"></div>
 				<div id="barre2"></div>
+				<div id="barre3"></div>
 			</div>
 			<!-- fin du menu hamburegr  -->
 
