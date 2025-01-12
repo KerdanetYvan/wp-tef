@@ -72,6 +72,11 @@ body, button {
 	font-style: normal;
 }
 
+/* style du texte de la bannière des coockies  */
+#cmplz-cookiebanner-container,#cmplz-cookiebanner-container button, .cmplz-manage-consent {
+	font-family: initial;
+}
+
 /* image landing doit sipara a 1000px  */
 /* let texte ne doit pas aller sur l'image et pas */
 
@@ -242,17 +247,22 @@ body, button {
 /*--------------------------------------------- debut du header ------------------------------------------------------------- */
 #masthead {
 	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr;
-	justify-items: center;
-	font-size: large;
-	padding: 12px 24px;
-	justify-content: space-between;
-	box-shadow: 0px 0.4px 7px 0px rgba(0, 0, 0, 0.1);
-	margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    font-size: large;
+    padding: 12px 24px;
+    justify-content: space-between;
+    box-shadow: 0px 0.4px 7px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+    position: fixed;
+    background: white;
+    z-index: 9;
+}
+#primary{
+	padding:123px 0 48px 0 ;
 
 }
-
 .class-header-menu{
 	display: grid;
 }
@@ -300,8 +310,8 @@ body, button {
 
 #primary-menu li a{
 	white-space: nowrap;
-
 }
+
 
 /* menu burger  */
 .off{
@@ -382,16 +392,17 @@ body, button {
 .menuHamburger {
     width: 25px;
     height: 20px;
-    position: fixed;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	
-    right: 25px;
-    top: 96px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    right: 0px;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: 4;
 
 }
+
 .menuHamburger div{
 	border-radius: 10px;
 	border: solid 1px black;
@@ -417,17 +428,22 @@ body, button {
 .angleBarre2{
 	transform: rotate(-45deg);
 }
-
+.custom-logo-link img{
+	width: 61.5px;
+	height: 50px;
+}
 
 /* version tablette / laptop  */
 @media screen and (min-width : 913px) {
+	/* logo bar de navigation  */
+	.custom-logo-link img{
+		width: initial;
+		height: initial;
+	}
 	#containerNavLink{
 		display: grid;
 		grid-template-columns: auto auto;
-		/* justify-content: space-between; */
 		align-items: center;
-		/* width: 100%; */
-		/* gap: 10px; */
 		width: 100%;
 		justify-content: space-between;
 
@@ -455,6 +471,22 @@ body, button {
 		display: none;
 	}
 
+	/* on active le hover des titres */
+
+
+	#primary-menu li a:hover::after{
+        transform: scaleX(1);
+		transform-origin: bottom left;
+	}
+	#primary-menu li a::after{
+        content: "";
+        display: flex;
+        height: 100%;
+		transform-origin: bottom right;
+        background: url('./img/underlineNavBar.svg') no-repeat;
+        transform: scaleX(0);
+        transition: transform 0.5s ease;
+	}
 
 	#primary-menu{
 		display: grid;

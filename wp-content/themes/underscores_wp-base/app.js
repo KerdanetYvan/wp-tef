@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
         croix2.classList.toggle('angleBarre2');
         barre3.classList.toggle("off")
         // stop la propagation du click en dehors du document 
-        event.stopPropagation()
+        event.stopPropagation() 
         isOpen = true
         // si on clique en dehors de la page on ferme la page du menu burger 
         document.addEventListener('click', (event) => {
@@ -31,11 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 croix2.classList.toggle('croix');
                 croix1.classList.toggle('angleBarre1');
                 croix2.classList.toggle('angleBarre2');
-                barre3.style.display ="block"
-                event.stopPropagation()
+                barre3.classList.toggle("off")
                 isOpen = false
-
-    
             }
         })
     });

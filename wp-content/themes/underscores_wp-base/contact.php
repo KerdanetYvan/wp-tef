@@ -45,7 +45,7 @@ get_header(); ?>
             <div> 
                 <p class="bold">Téléphone</p>
                 <p><?= get_field('numero_de_telephone_formulaire_de_contact') ?></p>
-            </div>
+            </div> 
         </div>
         <div class="email formVignette">
             <div>
