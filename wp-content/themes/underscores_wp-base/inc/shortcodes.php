@@ -85,6 +85,7 @@ function theme_custom_section_services_shortcode($atts) {
             border-left: 1px dashed #349094;
             gap: 16px;
             position: relative;
+            max-width: 312px;
         }
         .phase-item h4 {
             font-family: "Inter", serif;
@@ -94,7 +95,7 @@ function theme_custom_section_services_shortcode($atts) {
             line-height: 29.05px;
         }
         .descriptio-phase-item{
-            height:120px;
+            height:100%;
             display: grid;
             align-content: space-between;
         }
@@ -134,6 +135,7 @@ function theme_custom_section_services_shortcode($atts) {
                 border-top: 2px dashed #349094 ;
                 border-left: none;
                 width: 300px;
+                gap: 12px;
                 padding-bottom: 0px;
                 
             }
@@ -307,19 +309,19 @@ function theme_custom_service($atts) {
 
     ob_start(); ?>
     <div class="container_service">
-        <div class='service'>
+        <div class='service card1'>
             <h4 class="blanc titre_service"><?= esc_html($atts["title1"]); ?></h4>
             <ul class="blanc description_service list"><?= wp_kses_post($atts["content1"], ['li' => []]); ?></ul>
         </div>
-        <div class='service'>
+        <div class='service card2'>
             <h4 class="blanc titre_service"><?= esc_html($atts["title2"]); ?></h4>
             <ul class="blanc description_service list"><?= wp_kses_post($atts["content2"], ['li' => []]); ?></ul>
         </div>
-        <div class='service'>
+        <div class='service card3'>
             <h4 class="blanc titre_service"><?= esc_html($atts["title3"]); ?></h4>
             <ul class="blanc description_service list"><?= wp_kses_post($atts["content3"], ['li' => []]); ?></ul>
         </div>
-        <div class='service'>
+        <div class='service card4'>
             <h4 class="blanc titre_service"><?= esc_html($atts["title4"]); ?></h4>
             <ul class="blanc description_service list"><?= wp_kses_post($atts["content4"], ['li' => []]); ?></ul>
         </div>
@@ -336,10 +338,24 @@ function theme_custom_service($atts) {
 
         .service {
             padding: 16px 25.5px;
-            background-color: #5BA4A7;
             border-radius: 20px;
             min-height: 330px;
             min-width: 270px;
+        }
+        .card1{
+            background: url('<?php echo get_template_directory_uri(); ?>/img/service-mage-container1.svg') no-repeat;
+        }
+        .card2{
+            background: url('<?php echo get_template_directory_uri(); ?>/img/service-mage-container2.svg') no-repeat;
+
+        }
+        .card3{
+            background: url('<?php echo get_template_directory_uri(); ?>/img/service-mage-container3.svg') no-repeat;
+
+        }
+        .card4{
+            background: url('<?php echo get_template_directory_uri(); ?>/img/service-mage-container4.svg') no-repeat;
+
         }
 
         .blanc {
