@@ -272,7 +272,7 @@ function theme_custom_section_between_shortcode($atts) {
 
 
             .picture1{
-                background:linear-gradient(180deg, #B9DADA 47.07%, rgba(52, 144, 148, 0) 100%) ,  url('<?php echo get_template_directory_uri(); ?>/img/compare-gauche-image-laptop.webp') no-repeat bottom ;
+                background: linear-gradient(180deg, #B9DADA 47.07%, rgba(52, 144, 148, 0) 100%) ,  url('<?php echo get_template_directory_uri(); ?>/img/compare-gauche-image-laptop.webp') no-repeat bottom ;
             }
             .picture2{
                 background: linear-gradient(180deg, #B9DADA 47.07%,#34909400 100%), url('<?php echo get_template_directory_uri(); ?>/img/compare-droite-image-laptop.webp') no-repeat bottom;
@@ -867,21 +867,42 @@ function theme_custom_green_fade($atts) {
             font-weight: 390;
             line-height: 16px;
             text-align: left;
-
+            width: 320px;
         }
 
         @media screen and (max-width: 1200px) {
             .desc_green_fade {
-                width: 100%;
+                width: 55%;
             }
         }
 
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width: 1184px) {
             .bureau, .seance {
                 width: calc(100% - 48px);
                 margin-inline: 24px;
             } 
         }
+        @media screen and (max-width: 672px) {
+            .bureau, .seance {
+                height: 430px;
+            } 
+            .desc_green_fade {
+                width: 100%;
+            }
+            .bureau{
+                background: linear-gradient(180deg, #B9DADA 47.07%, rgba(52, 144, 148, 0) 100%), url('<?php echo get_template_directory_uri(); ?>/img/burreau-mobil.webp');
+                background-size: cover;
+                background-position: bottom;
+                background-repeat: no-repeat;
+            }
+            .seance{
+                background: linear-gradient(180deg, #B9DADA 47.07%,#34909400 100%), url('<?php echo get_template_directory_uri(); ?>/img/seance-mobil.webp');
+                background-size: cover;
+                background-position: bottom;
+                background-repeat: no-repeat;
+            }
+        }
+
     </style>
 
     <?php return ob_get_clean();

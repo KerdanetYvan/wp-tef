@@ -753,7 +753,7 @@ body, button {
 }
 /* barre de recherche  */
 /* article  */
-.containerArticleSingle,.articleHilight {
+.articleHilight {
 	margin:24px 0 ;
 }
 .containerTexteArticleSingle{
@@ -761,9 +761,7 @@ body, button {
 }
 
 @media screen and (min-width:940px){
-	.containerArticleSingle{
-		margin: 48px 40px;
-	}
+
 
 	.containerTexteArticleSingle{
 		padding: 49px 203px;
@@ -778,6 +776,9 @@ body, button {
 
 	.articleHilight{
 		margin: 146px;
+	}
+	.banner{
+		padding-top:130px;
 	}
 }
 
