@@ -182,6 +182,10 @@ body, button {
 	font-weight: 400; 
 	font-size: 1.5rem;
 }
+.ctaLanding a{
+	text-decoration: none;
+	color: white;
+}
 
 @media (min-width:1014px){
 	.gridPictureLanding{
@@ -562,6 +566,8 @@ body, button {
 /*---------------------------------------------- page blog ---------------------------------------------------------- */
 .titreBlog{
 	text-align: center;
+	padding-top: 150px;
+	margin-bottom: 59px;
 }
 .cardBlog{
     border-radius: 20px;
@@ -678,14 +684,14 @@ body, button {
 	display: grid;
 	justify-content: center;
 	width: 100%;
-	margin-top: 59px;
+	padding: 0 24px;
 	gap: 8px;
 }
 .navigationSearch{
 	display: flex;
 	gap: 8px;
 	flex-wrap: wrap;
-	width: 603px;
+	max-width: 603px;
 	justify-content: center;
 
 }
@@ -1034,13 +1040,13 @@ footer .menu-item a{
 	gap: 12px;
 }
 
-.wpcf7-response-output{
+/* .wpcf7-response-output{
 	position:fixed;
 	top: 20px;
 	left: 50%;
 	transform: translate(-50%,-50%);
 	margin: auto;
-}
+} */
 
 /* formulaire james  */
 
@@ -1052,6 +1058,7 @@ footer .menu-item a{
 	gap: 16px;
 	justify-content: center;
 	align-items: center;
+	padding-top: 123px;
 }
 
 .mainForm h1{
@@ -1191,6 +1198,12 @@ input::placeholder, .btn{
 
 
 /* partie button  */
+
+@media screen and (min-width:940px){
+	.mainForm{
+		padding-top: 201px;
+	}
+}
 
 @media screen and (max-width: 900px) {
 	.containerForm {

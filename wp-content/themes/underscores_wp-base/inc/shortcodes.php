@@ -333,28 +333,29 @@ function theme_custom_service($atts) {
             gap: 12px;
             padding: 0 40px;
         }
-
-
-
+        
+        
+        
         .service {
             padding: 16px 25.5px;
-            border-radius: 20px;
+            /* background: #5BA4A7; */
             min-height: 330px;
             min-width: 270px;
+            border-radius: 20px;
         }
         .card1{
             background: url('<?php echo get_template_directory_uri(); ?>/img/service-mage-container1.svg') no-repeat;
         }
         .card2{
-            background: url('<?php echo get_template_directory_uri(); ?>/img/service-mage-container2.svg') no-repeat;
+            background: url('<?php echo get_template_directory_uri(); ?>/img/service-mage-container1.svg') no-repeat;
 
         }
         .card3{
-            background: url('<?php echo get_template_directory_uri(); ?>/img/service-mage-container3.svg') no-repeat;
+            background: url('<?php echo get_template_directory_uri(); ?>/img/service-mage-container1.svg') no-repeat;
 
         }
         .card4{
-            background: url('<?php echo get_template_directory_uri(); ?>/img/service-mage-container4.svg') no-repeat;
+            background: url('<?php echo get_template_directory_uri(); ?>/img/service-mage-container1.svg') no-repeat;
 
         }
 
@@ -607,7 +608,7 @@ function theme_landing() {
         <h1 class="titre_landing">Faisons connaissances</h1>
         <div class="content_landing">
             <p class="desc_landing">
-            Mon objectif ?<br /><span class="souligner aider">Aider</span> chaque enfant à surmonter ses difficultés avec le <span class="entourer">sourire</span>, dans une ambiance <span class="souligner">bienveillante</span> et adaptée à son rythme !
+            Mon objectif ?<br /><span class="souligner underline1 aider">Aider</span> chaque enfant à surmonter ses difficultés avec le <span class="entourer">sourire</span>, dans une ambiance <span class="souligner underline2">bienveillante</span> et adaptée à son rythme !
             </p>
             <img src="<?php echo get_template_directory_uri(); ?>/img/madame.png" alt="Image de l'accompagnement" class="img_landing">
         </div>
@@ -615,12 +616,11 @@ function theme_landing() {
     <style>
         .landing {
             background-color: #E5F2F1;
-            padding: 48px 40px 0 40px;
+            padding: 48px 0 0 40px;
             display: grid;
             grid-template-columns: 100%;
             gap: 24px;
             margin-bottom: 48px;
-            width: 100vw;
         }
 
         .titre_landing {
@@ -637,11 +637,12 @@ function theme_landing() {
             justify-content: space-between;
             align-items: center;
         }
-
+        
         .desc_landing {
-            font-size: 36px;
+            font-size: 2rem;
             font-weight: 420;
-            max-width: 622px;
+            line-height: 51.49px;
+            text-align: left;
         }
 
         .img_landing {
@@ -670,11 +671,18 @@ function theme_landing() {
         .souligner::after {
             position: absolute;
             content: "";
-            background: url('<?php echo get_template_directory_uri(); ?>/img/underline.svg') no-repeat;
             width: 100%;
             height: 10px;
             bottom: -4px;
             left: 0;
+        }
+        .underline1::after{
+            background: url('<?php echo get_template_directory_uri(); ?>/img/underline.svg') no-repeat;
+            
+        }
+        .underline2::after{
+            background: url('<?php echo get_template_directory_uri(); ?>/img/underline2.svg') no-repeat;
+
         }
 
         .aider::after {
@@ -799,11 +807,11 @@ function theme_custom_section_desc($atts) {
         }
 
         .description {
-            font-size: 24px;
-            font-weight: 400;
-            line-height: 34.32px;
+            margin-top: 39px;
+            font-size: 16px;
+            font-weight: 390;
+            line-height: 16px;
             text-align: left;
-            
         }
     </style>
 
@@ -843,7 +851,7 @@ function theme_custom_green_fade($atts) {
             padding: 24px;
             background: linear-gradient(90deg, #B9DADA 10.33%, rgba(52, 144, 148, 0.00) 100%), linear-gradient(90deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 60%, rgba(255, 255, 255, 0.00) 99.89%), url('<?php echo get_template_directory_uri(); ?>/img/seance.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: right;
             background-repeat: no-repeat;
             border-radius: 20px;
         }
@@ -855,11 +863,11 @@ function theme_custom_green_fade($atts) {
         }
 
         .desc_green_fade {
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: 390;
             line-height: 16px;
-            text-align: justify;
-            width: 50%;
+            text-align: left;
+
         }
 
         @media screen and (max-width: 1200px) {

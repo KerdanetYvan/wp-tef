@@ -17,7 +17,7 @@ get_header();
         <div>
             <h1 class="mainMenu">Un <span class="unedrlineMain">accompagnement</span> sur <span class="surroundedMain">mesure</span>  pour vos enfants</h1>
             <p class="landingPresentation">“Chaque pas, même petit, est une victoire vers l'autonomie et la confiance en soi.”</p>
-            <button class="ctaLanding">Me contacter</button>
+            <button class="ctaLanding"><a href= "<?= the_permalink() ?>contact"> Me contacter</a></button>
         </div>
     </div>
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
