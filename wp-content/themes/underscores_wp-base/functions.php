@@ -243,6 +243,10 @@ function block_access_to_users_endpoint() {
 }
 add_action('init', 'block_access_to_users_endpoint');
 
-
+// ajoute une classe au paragraphe des aricles pour les stiliser en js 
+function kodex_first_paragraph_class($content){
+	return preg_replace('/<p([^>]+)?>/', '<p$1 class="paragrapheArticle">', $content, 1);
+}
+add_filter('the_content', 'kodex_first_paragraph_class');
 
 // modif james yann yavan 

@@ -608,7 +608,7 @@ function theme_landing() {
         <h1 class="titre_landing">Faisons connaissances</h1>
         <div class="content_landing">
             <p class="desc_landing">
-            Mon objectif ?<br /><span class="souligner underline1 aider">Aider</span> chaque enfant à surmonter ses difficultés avec le <span class="entourer">sourire</span>, dans une ambiance <span class="souligner underline2">bienveillante</span> et adaptée à son rythme !
+            Mon objectif ? <span class="souligner underline1 aider">Aider</span> chaque enfant à surmonter ses difficultés avec le <span class="entourer">sourire</span>, dans une ambiance <span class="souligner underline2">bienveillante</span> et adaptée à son rythme !
             </p>
             <img src="<?php echo get_template_directory_uri(); ?>/img/madame.png" alt="Image de l'accompagnement" class="img_landing">
         </div>
@@ -657,11 +657,12 @@ function theme_landing() {
         .entourer::after {
             position: absolute;
             content: "";
-            background: url('<?php echo get_template_directory_uri(); ?>/img/Ellipse.svg') no-repeat;
-            width: 125%;
+            background: url(http://localhost/wordpress-warriors/wp-content/themes/underscores_wp-base/img/Ellipse.svg) no-repeat;
+            width: 113%;
             height: 125%;
             top: 7.5px;
-            left: -7.5px;
+            left: -5.5px;
+
         }
 
         .souligner {
@@ -688,15 +689,48 @@ function theme_landing() {
         .aider::after {
             background: url('<?php echo get_template_directory_uri(); ?>/img/Ellipse_7.svg') no-repeat;
         }
-
         @media screen and (max-width: 1024px) {
+        
+            .img_landing {
+                display: none;
+            }
+            .desc_landing{
+                margin-bottom: 48px;
+            }
+        
+        }
+        @media screen and (max-width: 918px) {
             .content_landing {
                 grid-template-columns: 100%;
             }
 
-            .img_landing {
+            .titre_landing{
+                font-size: 2.25rem;
+                line-height: 51.48px;
+                text-align: center;
+            }
+            
+            
+            .landing{
+                padding: 48px 24px;
+            }
+            .desc_landing{
+                
+
+                font-size: 1rem;
+                font-weight: 420;
+                line-height: 22.87px;
+                text-align: left;
+
+            }
+            /* on retire les effete estétique de la maquette  */
+            .souligner::after,.underline1::after,.underline2::after,.entourer::after  {
                 display: none;
             }
+            #primary{
+                padding-top: 80px;
+            }
+
         }
     </style>
 

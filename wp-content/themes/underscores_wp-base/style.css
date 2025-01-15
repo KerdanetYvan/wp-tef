@@ -607,9 +607,9 @@ body, button {
 }
 .cardBlog p {
     overflow: hidden;
-    text-overflow: ellipsis;
-    width: auto;
-    height: 50px;
+    /* text-overflow: revert; */
+    /* width: auto; */
+    /* height: 50px; */
 }
 
 .containerTexteCard{
@@ -705,7 +705,10 @@ body, button {
 	text-align: center;
 	list-style: none;
 }
-
+.navigationSearch li:hover, .search-form input[type=submit]:hover, .containerTexteCard button:hover {
+	background: rgb(229, 242, 241);
+	transition: ease-out 0.3s;
+}
 
 
 
