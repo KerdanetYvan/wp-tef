@@ -923,6 +923,9 @@ footer .menu-item a{
 
 /* ------------------------------------ Page 404 --------------------------------------------------------------- */
 
+#prim_404{
+	padding-top: 134px;
+}
 #div_404 {
 	width: 100%;
 	height: fit-content;
@@ -1005,10 +1008,6 @@ footer .menu-item a{
 
 	#div_oops h2 {
 		font-size: 36px;
-	}
-
-	#div_oops {
-		padding-bottom: 100%;
 	}
 }
 
