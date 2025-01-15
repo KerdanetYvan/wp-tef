@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<div class="recherche">
+	<div class="recherche rechercheCategorie">
 		<!-- barre de recherche  -->
 		<?php get_search_form(); ?>
 		<!-- on récupère tout les tags qui existent  -->
@@ -50,7 +50,7 @@ get_header();
 					<span class="containerTexteCard">
 						<h2 class="titreArticle"><?php the_title(); ?></h2>
 						<div class="contenuArticle">
-							<?php the_excerpt(); ?>
+							<?php the_content(); ?>
 						</div>
 						<button>
 							<a href="<?= get_permalink(); ?>">Lire l'article</a>
