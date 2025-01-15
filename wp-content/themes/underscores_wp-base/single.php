@@ -43,11 +43,11 @@ get_header();
         if(!empty($datas)){
             foreach($datas as $data){
                 $article = get_post($data);
-                $title = $article->post_title;
-                $contenu = $article->post_content;
+                $title = esc_html($article->post_title); // Sécurisation des données
+                $contenu = apply_filters('the_content', $article->post_content); // Appliquer les filtres de contenu WordPress
                 $id = $article->ID;
-                $thumbnail_url = has_post_thumbnail($id) ? get_the_post_thumbnail_url($id) : null;
-                $link = $article->guid;
+                $thumbnail_url = has_post_thumbnail($id) ? esc_url(get_the_post_thumbnail_url($id)) : null;
+                $link = esc_url(get_permalink($id));
                 ?>
                 <article class="cardBlog">
                     <?= '<img src="'. $thumbnail_url .'"/>'; ?>
@@ -56,7 +56,7 @@ get_header();
                         <div class="contenuArticle">
                             <?= $contenu ?>
                         </div>
-                        <button><a href=<?php $link ?>>Lire l'article</a></button>
+                        <button><a href="<?php $link ?>">Lire l'article</a></button>
                     </span>
                 </article>
                 <?php

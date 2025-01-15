@@ -6,7 +6,7 @@ get_header();
 // ici mon code
 // nous appelons la boucle wordpress 
 ?>
-<div class="recherche">
+<div class="recherche rechercheCategorie">
 	<!-- barre de recherche  -->
 	<?php get_search_form(); ?>
 	<!-- on récupère tout les tags qui existent  -->

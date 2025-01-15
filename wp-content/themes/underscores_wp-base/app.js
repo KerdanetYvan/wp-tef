@@ -57,8 +57,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if(document.querySelectorAll('.paragrapheArticle').length !== 0){
         let texte = document.querySelectorAll('.paragrapheArticle')
         texte.forEach(element => {
-            if(element.innerHTML.length > 80){
-                return element.innerHTML = element.innerHTML.slice(0, 80).concat('...')
+            if(element.innerHTML.length > 200){
+                return element.innerHTML = element.innerHTML.slice(0, 200).concat('...')
             }
             return element.innerHTML
         })
