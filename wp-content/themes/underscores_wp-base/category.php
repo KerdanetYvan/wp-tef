@@ -57,7 +57,7 @@ get_header();
             <span class="containerTexteCard">
                <h2 class="titreArticle"><?php the_title() ?></h2>
                <div class="contenuArticle">
-                  <?php the_content(); ?>
+                  <?php the_excerpt(); ?>
                </div>
                <button><a href=<?= get_permalink() ?>>Lire l'article</a></button>
             </span>

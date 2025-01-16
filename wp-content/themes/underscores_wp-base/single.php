@@ -44,7 +44,8 @@ get_header();
             foreach($datas as $data){
                 $article = get_post($data);
                 $title = esc_html($article->post_title); // Sécurisation des données
-                $contenu = apply_filters('the_content', $article->post_content); // Appliquer les filtres de contenu WordPress
+                $contenu = apply_filters('the_excerpt', $article->post_excerpt);
+                $extrait = get_the_excerpt($article);
                 $id = $article->ID;
                 $thumbnail_url = has_post_thumbnail($id) ? esc_url(get_the_post_thumbnail_url($id)) : null;
                 $link = esc_url(get_permalink($id));
@@ -54,7 +55,7 @@ get_header();
                     <span class="containerTexteCard">
                         <h2 class="titreArticle"><?= $title ?></h2>
                         <div class="contenuArticle">
-                            <?= $contenu ?>
+                            <?= $extrait ?>
                         </div>
                         <button><a href="<?php $link ?>">Lire l'article</a></button>
                     </span>
