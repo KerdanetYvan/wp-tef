@@ -72,13 +72,10 @@ function manager_highlighting(){
     }
 }
 
+// gestions des messages d'erreurs 
 add_action('admin_post_save_highlighting_data', 'validate_highlighting_data');
 function validate_highlighting_data($input) {
     if (is_array($input) && count($input) > 3) {
-        echo '<pre>';
-        print_r($input);
-        echo '</pre>';
-        // gestions des erreurs
         add_settings_error( 
             "highlighting_data", // Slug title of the setting to which this error applies.
             "id", // Slug-name to identify the error. Used as part of 'id' attribute in HTML output.
@@ -97,8 +94,6 @@ function validate_highlighting_data($input) {
 function highlighting_options_page() { 
 
     ?>
-    <!-- Affichage des erreurs -->
-    <?php settings_errors('highlighting_data'); ?>
 
     <form action='options.php' method='post'>
 

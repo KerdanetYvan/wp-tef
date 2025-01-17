@@ -31,7 +31,8 @@ get_header();
         <a href="<?= home_url(); ?>/articles" class="retourArticleSingle">Retour</a>
     </div>
     <div class="articleHilight">
-        <h2 class="titleHilightPart">Lire plus d’articles</h2>
+        <!-- <h2 class="titleHilightPart">Lire plus d’articles</h2> -->
+        <?= do_shortcode('[custom_title_desc title="Lire plus d’articles" description=""]'); ?>
         <?php 
 
          // plugin de mise en avant 
