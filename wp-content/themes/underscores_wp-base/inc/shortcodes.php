@@ -297,19 +297,19 @@ function theme_custom_service($atts) {
 
     ob_start(); ?>
     <div class="container_service">
-        <div class='service'>
+        <div class='service serv_type_1'>
             <h4 class="blanc titre_service"><?= esc_html($atts["title1"]); ?></h4>
             <ul class="blanc description_service list"><?= wp_kses_post($atts["content1"], ['li' => []]); ?></ul>
         </div>
-        <div class='service'>
+        <div class='service serv_type_2'>
             <h4 class="blanc titre_service"><?= esc_html($atts["title2"]); ?></h4>
             <ul class="blanc description_service list"><?= wp_kses_post($atts["content2"], ['li' => []]); ?></ul>
         </div>
-        <div class='service'>
+        <div class='service serv_type_1'>
             <h4 class="blanc titre_service"><?= esc_html($atts["title3"]); ?></h4>
             <ul class="blanc description_service list"><?= wp_kses_post($atts["content3"], ['li' => []]); ?></ul>
         </div>
-        <div class='service'>
+        <div class='service serv_type_2'>
             <h4 class="blanc titre_service"><?= esc_html($atts["title4"]); ?></h4>
             <ul class="blanc description_service list"><?= wp_kses_post($atts["content4"], ['li' => []]); ?></ul>
         </div>
@@ -328,6 +328,14 @@ function theme_custom_service($atts) {
             border-radius: 20px;
             min-height: 330px;
             min-width: 270px;
+        }
+
+        .serv_type_1 {
+
+        }
+
+        .serv_type_2 {
+            
         }
 
         .blanc {
